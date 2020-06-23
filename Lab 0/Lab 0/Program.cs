@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelloLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,9 @@ namespace Lab_0
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Class1 class1 = new Class1();
+            class1.Hello();
+
             Console.ReadKey();
         }
     }
