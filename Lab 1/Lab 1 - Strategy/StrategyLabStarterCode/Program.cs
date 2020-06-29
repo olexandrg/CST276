@@ -12,6 +12,8 @@ namespace StrategyLabStarterCode
         // report days with high daily swing
         private static void ReportTradingDays(StockMarket tradingDays)
         {
+            Console.WriteLine("High Swing Days: ");
+
             foreach (TradingDay day in tradingDays.GetTradingDays())
             {
                 IFilterStrategy tradingDay = new HighDailySwing();
@@ -24,6 +26,8 @@ namespace StrategyLabStarterCode
         // report days with high trading volume
         private static void ReportHighVolumeDays(StockMarket tradingDays)
         {
+            Console.WriteLine("\n" + "High Volume Days: ");
+
             foreach (TradingDay day in tradingDays.GetTradingDays())
             {
                 IFilterStrategy tradingDay = new HighDailyVolume();
