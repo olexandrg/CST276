@@ -13,11 +13,10 @@ namespace StrategyLabStarterCode
         {
             foreach (TradingDay day in tradingDays.GetTradingDays())
             {
-                //logic before the "if" inside the "foreach"
-                double swing = day.Open - day.Close;
-                double percentageSwing = Math.Abs(swing / day.Open);
+                IFilterStrategy tradingDay = new HighDailySwing();
 
-                if (percentageSwing > 0.1)
+                //check if each day has a high swing
+                if (tradingDay.Include(day))
                 {
                     Console.WriteLine(day.ToString());
                 }
