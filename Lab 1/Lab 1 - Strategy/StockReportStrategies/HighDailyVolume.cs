@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StockReportStrategies;
 
 namespace StockReportStrategies
 {
-    public class HighDailySwing: IFilterStrategy
+    public class HighDailyVolume : IFilterStrategy
     {
         bool IFilterStrategy.Include(TradingDay day)
         {
-            double swing = day.Open - day.Close;
-            double percentageSwing = Math.Abs(swing / day.Open);
+            double volume = day.Volume;
 
-            if (percentageSwing > 0.1)
+            if (volume > DailyVolumeThreshold)
                 return true;
             return false;
         }
+
+        private const double DailyVolumeThreshold = 20000000;
+
     }
 }

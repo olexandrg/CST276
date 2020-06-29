@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HighDailySwing.cs" />
+    <Compile Include="HighDailyVolume.cs" />
     <Compile Include="IFilterStrategy.cs" />
     <Compile Include="StockMarket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

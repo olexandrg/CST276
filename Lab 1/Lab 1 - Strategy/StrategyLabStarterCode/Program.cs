@@ -9,17 +9,27 @@ namespace StrategyLabStarterCode
 {
     class Program
     {
+        // report days with high daily swing
         private static void ReportTradingDays(StockMarket tradingDays)
         {
             foreach (TradingDay day in tradingDays.GetTradingDays())
             {
                 IFilterStrategy tradingDay = new HighDailySwing();
 
-                //check if each day has a high swing
                 if (tradingDay.Include(day))
-                {
                     Console.WriteLine(day.ToString());
-                }
+            }
+        }
+
+        // report days with high trading volume
+        private static void ReportHighVolumeDays(StockMarket tradingDays)
+        {
+            foreach (TradingDay day in tradingDays.GetTradingDays())
+            {
+                IFilterStrategy tradingDay = new HighDailyVolume();
+
+                if (tradingDay.Include(day))
+                    Console.WriteLine(day.ToString());
             }
         }
 
@@ -28,6 +38,7 @@ namespace StrategyLabStarterCode
             StockMarket tradingDays = new StockMarket(@"..\..\stockData.csv");
 
             ReportTradingDays(tradingDays);
+            ReportHighVolumeDays(tradingDays);
 
             //Prevent the console window from closing during debugging. 
             Console.ReadLine();
