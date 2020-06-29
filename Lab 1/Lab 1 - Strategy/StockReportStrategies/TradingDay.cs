@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StrategyLabStarterCode
+namespace StockReportStrategies
 {
-    class TradingDay
+    public class TradingDay
     {
         public TradingDay(DateTime date, double open, double high, double low, double close, double volume)
         {
@@ -20,7 +20,7 @@ namespace StrategyLabStarterCode
 
         public override string ToString()
         {
-            return String.Format("{0}, Open:{1}, High:{2}, Low:{3}, Close:{4}, Vol:{5}", 
+            return String.Format("{0}, Open:{1}, High:{2}, Low:{3}, Close:{4}, Vol:{5}",
                 Date.ToShortDateString(), Open, High, Low, Close, Volume);
         }
 
@@ -30,7 +30,7 @@ namespace StrategyLabStarterCode
             get { return date; }
             set { date = value; }
         }
-        
+
         private double open;
         public double Open
         {

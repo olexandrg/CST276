@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace StrategyLabStarterCode
+namespace StockReportStrategies
 {
-    class StockMarket
+    public class StockMarket
     {
         List<TradingDay> tradingDays = new List<TradingDay>();
 
@@ -53,7 +53,6 @@ namespace StrategyLabStarterCode
         public IEnumerable<TradingDay> GetTradingDays()
         {
             return tradingDays;
-        }        
+        }
     }
-
 }
