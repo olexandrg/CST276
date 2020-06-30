@@ -1,6 +1,6 @@
 ﻿namespace StockReportStrategies
 {
-    public partial class HighDailyVolume : IFilterStrategy
+    public class HighDailyVolume : IFilterStrategy
     {
         bool IFilterStrategy.Include(TradingDay day, double dailyVolumeCap)
         {

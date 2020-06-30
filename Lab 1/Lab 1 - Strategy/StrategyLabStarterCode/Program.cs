@@ -10,31 +10,23 @@ namespace StrategyLabStarterCode
     class Program
     {
         // report days with high daily swing
-        private static void ReportHighSwingDays(StockMarket tradingDays, double swingFactor = 0.1)
+        private static void ReportHighSwingDays(StockMarket tradingDays, IFilterStrategy tradingDay, double swingFactor = 0.1)
         {
             Console.WriteLine("\n" + "High Swing Days: " + "\n");
 
             foreach (TradingDay day in tradingDays.GetTradingDays())
-            {
-                IFilterStrategy tradingDay = new HighDailySwing();
-
                 if (tradingDay.Include(day, swingFactor))
                     Console.WriteLine(day.ToString());
-            }
         }
 
         // report days with high trading volume
-        private static void ReportHighVolumeDays(StockMarket tradingDays, double highVolumeCap = 20000000)
+        private static void ReportHighVolumeDays(StockMarket tradingDays, IFilterStrategy tradingDay, double highVolumeCap = 20000000)
         {
             Console.WriteLine("\n" + "High Volume Days: " + "\n");
 
             foreach (TradingDay day in tradingDays.GetTradingDays())
-            {
-                IFilterStrategy tradingDay = new HighDailyVolume();
-
                 if (tradingDay.Include(day, highVolumeCap))
                     Console.WriteLine(day.ToString());
-            }
         }
 
         static void Main(string[] args)
@@ -42,14 +34,18 @@ namespace StrategyLabStarterCode
             ICSVParser originalParser = new OriginalCSVParser();
             ICSVParser yahooParser = new YahooCSVParser();
 
+            IFilterStrategy dailySwingReport = new HighDailySwing();
+            IFilterStrategy dailyVolumeReport = new HighDailyVolume();
+
             StockMarket tradingDays = new StockMarket(@"..\..\stockData.csv", originalParser);
             StockMarket googleDays = new StockMarket(@"..\..\GOOG.csv", yahooParser);
 
-            ReportHighSwingDays(tradingDays);
-            ReportHighVolumeDays(tradingDays);
+            ReportHighSwingDays(tradingDays, dailySwingReport);
+            ReportHighVolumeDays(tradingDays, dailyVolumeReport);
 
-            ReportHighSwingDays(googleDays, 0.01);
-            ReportHighVolumeDays(googleDays, 50000);
+            // testing overloaded function definitions
+            ReportHighSwingDays(googleDays, dailySwingReport, 0.01);
+            ReportHighVolumeDays(googleDays, dailyVolumeReport, 50000);
 
             //Prevent the console window from closing during debugging. 
             Console.ReadLine();
