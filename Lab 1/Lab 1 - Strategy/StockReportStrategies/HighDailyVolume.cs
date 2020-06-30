@@ -2,23 +2,11 @@
 {
     public partial class HighDailyVolume : IFilterStrategy
     {
-        bool IFilterStrategy.Include(TradingDay day)
+        bool IFilterStrategy.Include(TradingDay day, double dailyVolumeCap)
         {
             double volume = day.Volume;
 
-            if (volume > day.DailyVolumeCap)
-                return true;
-            return false;
-        }
-    }
-
-    public partial class HighDailyVolume : IGoogleFilterStrategy
-    {
-        bool IGoogleFilterStrategy.Include(GoogleTradingDay day)
-        {
-            double volume = day.Volume;
-
-            if (volume > day.DailyVolumeCap)
+            if (volume > dailyVolumeCap)
                 return true;
             return false;
         }

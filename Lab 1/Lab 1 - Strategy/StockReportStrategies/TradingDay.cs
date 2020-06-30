@@ -8,7 +8,7 @@ namespace StockReportStrategies
 {
     public class TradingDay
     {
-        public TradingDay(DateTime date, double open, double high, double low, double close, double volume, double swingFactor, double dailyVolumeCap)
+        public TradingDay(DateTime date, double open, double high, double low, double close, double volume)
         {
             Date = date;
             Open = open;
@@ -16,23 +16,6 @@ namespace StockReportStrategies
             Low = low;
             Close = close;
             Volume = volume;
-            SwingFactor = swingFactor;
-            DailyVolumeCap = dailyVolumeCap;
-        }
-
-        private double volumeCap;
-        public double DailyVolumeCap
-        {
-            get { return volumeCap; }
-            set { volumeCap = value; }
-        }
-
-        private double swingFactor;
-
-        public double SwingFactor
-        {
-            get { return swingFactor; }
-            set { swingFactor = value; }
         }
 
         public override string ToString()
@@ -41,21 +24,21 @@ namespace StockReportStrategies
                 Date.ToShortDateString(), Open, High, Low, Close, Volume);
         }
 
-        private DateTime date;
+        public DateTime date;
         public DateTime Date
         {
             get { return date; }
             set { date = value; }
         }
 
-        private double open;
+        public double open;
         public double Open
         {
             get { return open; }
             set { open = value; }
         }
 
-        private double high;
+        public double high;
         public double High
         {
             get { return high; }

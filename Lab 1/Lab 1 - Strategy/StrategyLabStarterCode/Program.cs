@@ -10,7 +10,7 @@ namespace StrategyLabStarterCode
     class Program
     {
         // report days with high daily swing
-        private static void ReportTradingDays(StockMarket tradingDays)
+        private static void ReportHighSwingDays(StockMarket tradingDays, double swingFactor = 0.1)
         {
             Console.WriteLine("\n" + "High Swing Days: " + "\n");
 
@@ -18,27 +18,13 @@ namespace StrategyLabStarterCode
             {
                 IFilterStrategy tradingDay = new HighDailySwing();
 
-                if (tradingDay.Include(day))
-                    Console.WriteLine(day.ToString());
-            }
-        }
-
-        // overloaded definition to parse GOOG swing data
-        private static void ReportTradingDays(GoogleStockMarket tradingDays)
-        {
-            Console.WriteLine("\n" + "High Swing Days: " + "\n");
-
-            foreach (GoogleTradingDay day in tradingDays.GetGoogleTradingDays())
-            {
-                IGoogleFilterStrategy tradingDay = new HighDailySwing();
-
-                if (tradingDay.Include(day))
+                if (tradingDay.Include(day, swingFactor))
                     Console.WriteLine(day.ToString());
             }
         }
 
         // report days with high trading volume
-        private static void ReportHighVolumeDays(StockMarket tradingDays)
+        private static void ReportHighVolumeDays(StockMarket tradingDays, double highVolumeCap = 20000000)
         {
             Console.WriteLine("\n" + "High Volume Days: " + "\n");
 
@@ -46,34 +32,24 @@ namespace StrategyLabStarterCode
             {
                 IFilterStrategy tradingDay = new HighDailyVolume();
 
-                if (tradingDay.Include(day))
+                if (tradingDay.Include(day, highVolumeCap))
                     Console.WriteLine(day.ToString());
             }
         }
 
-        // overloaded definition to parse GOOG volume data
-        private static void ReportHighVolumeDays(GoogleStockMarket tradingDays)
-        {
-            Console.WriteLine("\n" + "High Volume Days: " + "\n");
-
-            foreach (GoogleTradingDay day in tradingDays.GetGoogleTradingDays())
-            {
-                IGoogleFilterStrategy tradingDay = new HighDailyVolume();
-
-                if (tradingDay.Include(day))
-                    Console.WriteLine(day.ToString());
-            }
-        }
         static void Main(string[] args)
         {
-            StockMarket tradingDays = new StockMarket(@"..\..\stockData.csv",0.1,20000000);
-            GoogleStockMarket googleDays = new GoogleStockMarket(@"..\..\GOOG.csv", 0.01, 2000000);
+            ICSVParser originalParser = new OriginalCSVParser();
+            ICSVParser yahooParser = new YahooCSVParser();
 
-            ReportTradingDays(tradingDays);
+            StockMarket tradingDays = new StockMarket(@"..\..\stockData.csv", originalParser);
+            StockMarket googleDays = new StockMarket(@"..\..\GOOG.csv", yahooParser);
+
+            ReportHighSwingDays(tradingDays);
             ReportHighVolumeDays(tradingDays);
 
-            ReportTradingDays(googleDays);
-            ReportHighVolumeDays(googleDays);
+            ReportHighSwingDays(googleDays, 0.01);
+            ReportHighVolumeDays(googleDays, 50000);
 
             //Prevent the console window from closing during debugging. 
             Console.ReadLine();

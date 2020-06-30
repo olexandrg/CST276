@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace StockReportStrategies
 {
-    public class GoogleStockMarket
+    public class OriginalCSVParser : ICSVParser
     {
-        List<GoogleTradingDay> tradingDays = new List<GoogleTradingDay>();
-
-        public GoogleStockMarket(string filename, double swingFactor = 0, int dailyVolumeCap = 0)
+        void ICSVParser.Parse(string filename, List<TradingDay> list)
         {
             //the "using" statement will close the file automatically
             using (StreamReader reader = new StreamReader(filename))
@@ -32,7 +30,7 @@ namespace StockReportStrategies
                     High = double.Parse(vals[2]);
                     Low = double.Parse(vals[3]);
                     Close = double.Parse(vals[4]);
-                    Volume = double.Parse(vals[6]);
+                    Volume = double.Parse(vals[5]);
 
                     //Hack for two digit days in csv file..
                     if (Date > DateTime.Now)
@@ -40,15 +38,10 @@ namespace StockReportStrategies
                         Date = Date.AddYears(-100);
                     }
 
-                    GoogleTradingDay day = new GoogleTradingDay(Date, Open, High, Low, Close, Volume, swingFactor, dailyVolumeCap);
-                    tradingDays.Add(day);
+                    TradingDay day = new TradingDay(Date, Open, High, Low, Close, Volume);
+                    list.Add(day);
                 }
             }
-        }
-
-        public IEnumerable<GoogleTradingDay> GetGoogleTradingDays()
-        {
-            return tradingDays;
         }
     }
 }
