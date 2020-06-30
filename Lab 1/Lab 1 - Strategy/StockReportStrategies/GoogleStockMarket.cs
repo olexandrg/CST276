@@ -11,7 +11,7 @@ namespace StockReportStrategies
     {
         List<GoogleTradingDay> tradingDays = new List<GoogleTradingDay>();
 
-        public GoogleStockMarket(string filename)
+        public GoogleStockMarket(string filename, double swingFactor = 0, int dailyVolumeCap = 0)
         {
             //the "using" statement will close the file automatically
             using (StreamReader reader = new StreamReader(filename))
@@ -40,13 +40,13 @@ namespace StockReportStrategies
                         Date = Date.AddYears(-100);
                     }
 
-                    GoogleTradingDay day = new GoogleTradingDay(Date, Open, High, Low, Close, Volume);
+                    GoogleTradingDay day = new GoogleTradingDay(Date, Open, High, Low, Close, Volume, swingFactor, dailyVolumeCap);
                     tradingDays.Add(day);
                 }
             }
         }
 
-        public IEnumerable<GoogleTradingDay> GetYahooTradingDays()
+        public IEnumerable<GoogleTradingDay> GetGoogleTradingDays()
         {
             return tradingDays;
         }

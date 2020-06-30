@@ -1,17 +1,26 @@
 ﻿namespace StockReportStrategies
 {
-    public class HighDailyVolume : IFilterStrategy
+    public partial class HighDailyVolume : IFilterStrategy
     {
         bool IFilterStrategy.Include(TradingDay day)
         {
             double volume = day.Volume;
 
-            if (volume > DailyVolumeThreshold)
+            if (volume > day.DailyVolumeCap)
                 return true;
             return false;
         }
+    }
 
-        private const double DailyVolumeThreshold = 20000000;
+    public partial class HighDailyVolume : IGoogleFilterStrategy
+    {
+        bool IGoogleFilterStrategy.Include(GoogleTradingDay day)
+        {
+            double volume = day.Volume;
 
+            if (volume > day.DailyVolumeCap)
+                return true;
+            return false;
+        }
     }
 }

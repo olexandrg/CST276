@@ -11,7 +11,7 @@ namespace StockReportStrategies
     {
         List<TradingDay> tradingDays = new List<TradingDay>();
 
-        public StockMarket(string filename)
+        public StockMarket(string filename, double swingFactor = 0, int dailyVolumeCap = 0)
         {
             //the "using" statement will close the file automatically
             using (StreamReader reader = new StreamReader(filename))
@@ -40,7 +40,7 @@ namespace StockReportStrategies
                         Date = Date.AddYears(-100);
                     }
 
-                    TradingDay day = new TradingDay(Date, Open, High, Low, Close, Volume);
+                    TradingDay day = new TradingDay(Date, Open, High, Low, Close, Volume, swingFactor, dailyVolumeCap);
                     tradingDays.Add(day);
                 }
             }

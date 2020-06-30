@@ -9,7 +9,7 @@ namespace StockReportStrategies
             double swing = day.Open - day.Close;
             double percentageSwing = Math.Abs(swing / day.Open);
 
-            if (percentageSwing > 0.1)
+            if (percentageSwing > day.SwingFactor)
                 return true;
             return false;
         }
@@ -22,7 +22,7 @@ namespace StockReportStrategies
             double swing = day.Open - day.Close;
             double percentageSwing = Math.Abs(swing / day.Open);
 
-            if (percentageSwing > 0.01)
+            if (percentageSwing > day.SwingFactor)
                 return true;
             return false;
         }

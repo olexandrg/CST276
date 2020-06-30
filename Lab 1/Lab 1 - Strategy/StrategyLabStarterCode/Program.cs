@@ -12,7 +12,7 @@ namespace StrategyLabStarterCode
         // report days with high daily swing
         private static void ReportTradingDays(StockMarket tradingDays)
         {
-            Console.WriteLine("High Swing Days: ");
+            Console.WriteLine("\n" + "High Swing Days: " + "\n");
 
             foreach (TradingDay day in tradingDays.GetTradingDays())
             {
@@ -23,12 +23,12 @@ namespace StrategyLabStarterCode
             }
         }
 
-        // overloaded definition to parse GOOG data csv
+        // overloaded definition to parse GOOG swing data
         private static void ReportTradingDays(GoogleStockMarket tradingDays)
         {
-            Console.WriteLine("High Swing Days: ");
+            Console.WriteLine("\n" + "High Swing Days: " + "\n");
 
-            foreach (GoogleTradingDay day in tradingDays.GetYahooTradingDays())
+            foreach (GoogleTradingDay day in tradingDays.GetGoogleTradingDays())
             {
                 IGoogleFilterStrategy tradingDay = new HighDailySwing();
 
@@ -40,7 +40,7 @@ namespace StrategyLabStarterCode
         // report days with high trading volume
         private static void ReportHighVolumeDays(StockMarket tradingDays)
         {
-            Console.WriteLine("\n" + "High Volume Days: ");
+            Console.WriteLine("\n" + "High Volume Days: " + "\n");
 
             foreach (TradingDay day in tradingDays.GetTradingDays())
             {
@@ -51,15 +51,29 @@ namespace StrategyLabStarterCode
             }
         }
 
+        // overloaded definition to parse GOOG volume data
+        private static void ReportHighVolumeDays(GoogleStockMarket tradingDays)
+        {
+            Console.WriteLine("\n" + "High Volume Days: " + "\n");
+
+            foreach (GoogleTradingDay day in tradingDays.GetGoogleTradingDays())
+            {
+                IGoogleFilterStrategy tradingDay = new HighDailyVolume();
+
+                if (tradingDay.Include(day))
+                    Console.WriteLine(day.ToString());
+            }
+        }
         static void Main(string[] args)
         {
-            StockMarket tradingDays = new StockMarket(@"..\..\stockData.csv");
-            GoogleStockMarket googleDays = new GoogleStockMarket(@"..\..\GOOG.csv");
+            StockMarket tradingDays = new StockMarket(@"..\..\stockData.csv",0.1,20000000);
+            GoogleStockMarket googleDays = new GoogleStockMarket(@"..\..\GOOG.csv", 0.01, 2000000);
 
-            //ReportTradingDays(tradingDays);
-            //ReportHighVolumeDays(tradingDays);
+            ReportTradingDays(tradingDays);
+            ReportHighVolumeDays(tradingDays);
 
             ReportTradingDays(googleDays);
+            ReportHighVolumeDays(googleDays);
 
             //Prevent the console window from closing during debugging. 
             Console.ReadLine();
