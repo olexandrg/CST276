@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrdersDll
 {
-    public abstract class PublicAbstractBase
+    public abstract class AbstractOrderBase
     {
         protected List<OrderItem> items = new List<OrderItem>();
 

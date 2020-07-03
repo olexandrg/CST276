@@ -8,7 +8,7 @@ namespace OrdersDll
 {
     public class AmericanExpressPaymentOrderDecorator : OrderDecorator
     {
-        public AmericanExpressPaymentOrderDecorator(PublicAbstractBase order) : base(order) {}
+        public AmericanExpressPaymentOrderDecorator(AbstractOrderBase order) : base(order) {}
         public override void PrintOrderItems()
         {
             Console.WriteLine("Additional Charges May Apply");

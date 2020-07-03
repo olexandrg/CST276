@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrdersDll
 {
-    public class Order : PublicAbstractBase
+    public class Order : AbstractOrderBase
     {
         public override void AddItem(string productCode, int quantity, double cost, double weight)
         {

@@ -8,7 +8,7 @@ namespace OrdersDll
 {
     public class ExpressDeliveryOrderDecorator : OrderDecorator
     {
-        public ExpressDeliveryOrderDecorator(PublicAbstractBase order) : base(order) { }
+        public ExpressDeliveryOrderDecorator(AbstractOrderBase order) : base(order) { }
         public override void PrintOrderItems()
         {
             Console.WriteLine("Shipping Costs May Apply");

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OrdersDll
 {
-    public class OrderDecorator : PublicAbstractBase
+    public class OrderDecorator : AbstractOrderBase
     {
-        protected PublicAbstractBase order;
+        protected AbstractOrderBase order;
 
-        public OrderDecorator(PublicAbstractBase order)
+        public OrderDecorator(AbstractOrderBase order)
         {
             this.order = order;
         }

@@ -8,7 +8,7 @@ namespace OrdersDll
 {
     public class VisaPaymentOrderDecorator : OrderDecorator
     {
-        public VisaPaymentOrderDecorator(PublicAbstractBase order) : base(order) {}
+        public VisaPaymentOrderDecorator(AbstractOrderBase order) : base(order) {}
 
         public override void PrintOrderItems()
         {
