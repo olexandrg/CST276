@@ -20,7 +20,6 @@ namespace OrdersDll
             }
             Console.WriteLine();
             Console.WriteLine("Total Cost of Items {0:C}", GetTotalCost());
-            Console.WriteLine();
         }
         public override double GetTotalCost()
         {

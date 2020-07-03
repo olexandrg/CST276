@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OrdersDll
+{
+    public class VisaPaymentOrderDecorator : OrderDecorator
+    {
+        public VisaPaymentOrderDecorator(PublicAbstractBase order) : base(order) {}
+
+        public override void PrintOrderItems()
+        {
+            Console.WriteLine("Additional Charges May Apply");
+            base.PrintOrderItems();
+            Console.WriteLine("Grand Total with Visa Charge {0:C}", GetTotalCost());
+            Console.WriteLine();
+        }
+        public override double GetTotalCost()
+        {
+            return base.GetTotalCost() + 2.00;
+        }
+    }
+}

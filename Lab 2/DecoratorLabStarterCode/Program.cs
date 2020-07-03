@@ -14,7 +14,7 @@ namespace DecoratorLabStarterCode
             // Creating a new order
             Order order = new Order();
 
-            //Add Express Shipping
+            // Express Shipping Decorator instance
             ExpressDeliveryOrderDecorator expressOrder = new ExpressDeliveryOrderDecorator(order);
 
             expressOrder.AddItem("BroncoHats", 2, 1.5, 0.2);
@@ -25,6 +25,14 @@ namespace DecoratorLabStarterCode
             expressOrder.AddItem("BroncoJerseys", 2, 2.3, 0.4);
 
             expressOrder.PrintOrderItems();
+
+            // Visa Decorator instance
+            VisaPaymentOrderDecorator visaOrder = new VisaPaymentOrderDecorator(order);
+            visaOrder.PrintOrderItems();
+
+            // American Express Decorator instance
+            AmericanExpressPaymentOrderDecorator amexOrder = new AmericanExpressPaymentOrderDecorator(order);
+            amexOrder.PrintOrderItems();
 
             Console.ReadLine();
         }
