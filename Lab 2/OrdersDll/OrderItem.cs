@@ -40,6 +40,7 @@ namespace OrdersDll
         }
 
         private double unitWeight;
+
         public double UnitWeight
         {
             get { return unitWeight; }

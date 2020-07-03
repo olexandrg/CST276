@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IOrderDecorator.cs" />
+    <Compile Include="PublicAbstractBase.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace OrdersDll
 {
-    public class Order : PublicAbstractBase
+    public abstract class PublicAbstractBase
     {
+        protected List<OrderItem> items = new List<OrderItem>();
 
-        public override void AddItem(string productCode, int quantity, double cost, double weight)
+        public virtual void AddItem(string productCode, int quantity, double cost, double weight)
         {
             items.Add(new OrderItem(productCode, quantity, cost, weight));
         }
 
-        public override void PrintOrderItems()
+        public virtual void PrintOrderItems()
         {
             foreach (OrderItem item in items)
             {
@@ -25,7 +26,7 @@ namespace OrdersDll
             Console.WriteLine();
         }
 
-        public override double GetTotalCost()
+        public virtual double GetTotalCost()
         {
             double total = 0;
 
