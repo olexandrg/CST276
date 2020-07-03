@@ -8,12 +8,10 @@ namespace OrdersDll
 {
     public class Order : PublicAbstractBase
     {
-
         public override void AddItem(string productCode, int quantity, double cost, double weight)
         {
             items.Add(new OrderItem(productCode, quantity, cost, weight));
         }
-
         public override void PrintOrderItems()
         {
             foreach (OrderItem item in items)
@@ -24,7 +22,6 @@ namespace OrdersDll
             Console.WriteLine("Total Cost of Items {0:C}", GetTotalCost());
             Console.WriteLine();
         }
-
         public override double GetTotalCost()
         {
             double total = 0;
@@ -35,6 +32,5 @@ namespace OrdersDll
             }
             return total;
         }
-
     }
 }
