@@ -11,19 +11,20 @@ namespace DecoratorLabStarterCode
     {
         static void Main(string[] args)
         {
+            // Creating a new order
             Order order = new Order();
 
-            order.AddItem("BroncoHats", 2, 1.5, 0.2);
-            order.AddItem("BroncoGloves", 1, 3.0, 0.5);
-            order.AddItem("BroncoSocks", 6, 1.9, 0.1);
-            order.AddItem("BroncoBanners", 3, 8.0, 1.5);
-            order.AddItem("BroncoFootBalls", 4, 5.6, 0.6);
-            order.AddItem("BroncoJerseys", 2, 2.3, 0.4);
-
-            order.PrintOrderItems();
-
             //Add Express Shipping
-            
+            ExpressDeliveryOrderDecorator expressOrder = new ExpressDeliveryOrderDecorator(order);
+
+            expressOrder.AddItem("BroncoHats", 2, 1.5, 0.2);
+            expressOrder.AddItem("BroncoGloves", 1, 3.0, 0.5);
+            expressOrder.AddItem("BroncoSocks", 6, 1.9, 0.1);
+            expressOrder.AddItem("BroncoBanners", 3, 8.0, 1.5);
+            expressOrder.AddItem("BroncoFootBalls", 4, 5.6, 0.6);
+            expressOrder.AddItem("BroncoJerseys", 2, 2.3, 0.4);
+
+            expressOrder.PrintOrderItems();
 
             Console.ReadLine();
         }

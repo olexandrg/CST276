@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOrderDecorator.cs" />
+    <Compile Include="OrderDecorator.cs" />
     <Compile Include="PublicAbstractBase.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="Order.cs" />
