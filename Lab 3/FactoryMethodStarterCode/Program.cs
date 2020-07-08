@@ -11,7 +11,7 @@ namespace FactoryMethodStarterCode
     {
         static void Main(string[] args)
         {
-            ConsoleLoggerFactory factory = new ConsoleLoggerFactory();
+            ILoggerFactory factory = new ConsoleLoggerFactory();
             ILogger logger1 = factory.CreateLogger();
 
             ILogger logger2 = factory.CreateLogger(LogLevel.ERROR);
@@ -19,7 +19,7 @@ namespace FactoryMethodStarterCode
             logger2.Log(LogLevel.ERROR, "Error Message");
             logger2.Log(LogLevel.FATAL, "Fatal Message");
 
-            FileLoggerFactory log_factory = new FileLoggerFactory();
+            ILoggerFactory log_factory = new FileLoggerFactory();
             ILogger flogger1 = log_factory.CreateLogger();
             flogger1.Log("Log message");
 

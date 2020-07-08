@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    public class FileLoggerFactory
+    public class FileLoggerFactory : ILoggerFactory
     {
-        public FileLogger CreateLogger()
+        public ILogger CreateLogger()
         {
             FileLogger logger = new FileLogger();
             return logger;
         }
 
-        public FileLogger CreateLogger(string LogFileName)
+        public ILogger CreateLogger(string LogFileName)
         {
             FileLogger logger = new FileLogger(LogFileName);
             return logger;
         }
 
-        public FileLogger CreateLogger(LogLevel level)
+        public ILogger CreateLogger(LogLevel level)
         {
             FileLogger logger = new FileLogger(level);
             return logger;
         }
 
-        public FileLogger CreateLogger(string logFileName, LogLevel level)
+        public ILogger CreateLogger(string logFileName, LogLevel level)
         {
-            FileLogger logger = CreateLogger(logFileName, level);
+            FileLogger logger = new FileLogger(logFileName, level);
             return logger;
         }
     }

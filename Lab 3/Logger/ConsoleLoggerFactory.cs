@@ -7,15 +7,15 @@ using Logger;
 
 namespace Logger
 {
-    public class ConsoleLoggerFactory
+    public class ConsoleLoggerFactory : ILoggerFactory
     {
-        public ConsoleLogger CreateLogger()
+        public ILogger CreateLogger()
         {
             ConsoleLogger logger = new ConsoleLogger();
             return logger;
         }
 
-        public ConsoleLogger CreateLogger(LogLevel level)
+        public ILogger CreateLogger(LogLevel level)
         {
             ConsoleLogger logger = new ConsoleLogger(level);
             return logger;
