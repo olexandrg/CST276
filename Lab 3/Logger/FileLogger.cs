@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Logger
 {
-    public class FileLogger
+    public class FileLogger : ILogger
     {
         private string logFile;
         private LogLevel logLevel;

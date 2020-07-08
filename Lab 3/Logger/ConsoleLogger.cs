@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    public class ConsoleLogger
+    public class ConsoleLogger : ILogger
     {
         private LogLevel logLevel;
 
