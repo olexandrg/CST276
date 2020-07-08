@@ -10,12 +10,12 @@ namespace Logger
     {
         private LogLevel logLevel;
 
-        public ConsoleLogger()
+        internal ConsoleLogger()
         {
             logLevel = LogLevel.INFO;
         }
 
-        public ConsoleLogger(LogLevel level)
+        internal ConsoleLogger(LogLevel level)
         {
             logLevel = level;
         }

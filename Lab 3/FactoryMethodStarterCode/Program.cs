@@ -11,21 +11,24 @@ namespace FactoryMethodStarterCode
     {
         static void Main(string[] args)
         {
-            //ConsoleLogger logger1 = new ConsoleLogger();
-            //logger1.Log("Log message");
+            ConsoleLoggerFactory factory = new ConsoleLoggerFactory();
+            ConsoleLogger logger1 = factory.CreateLogger();
 
-            ConsoleLogger logger2 = new ConsoleLogger(LogLevel.ERROR);
+            ConsoleLogger logger2 = factory.CreateLogger(LogLevel.ERROR);
             logger2.Log(LogLevel.WARN, "Should not see this");
             logger2.Log(LogLevel.ERROR, "Error Message");
             logger2.Log(LogLevel.FATAL, "Fatal Message");
 
-            FileLogger flogger1 = new FileLogger();
+            FileLoggerFactory log_factory = new FileLoggerFactory();
+            FileLogger flogger1 = log_factory.CreateLogger();
             flogger1.Log("Log message");
 
-            FileLogger flogger2 = new FileLogger(LogLevel.ERROR);
+            FileLogger flogger2 = log_factory.CreateLogger(LogLevel.ERROR);
             flogger2.Log(LogLevel.WARN, "Should not see this");
             flogger2.Log(LogLevel.ERROR, "Error Message");
             flogger2.Log(LogLevel.FATAL, "Fatal Message");
+
+            Console.ReadLine();
         }
     }
 }

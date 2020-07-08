@@ -13,25 +13,25 @@ namespace Logger
         private LogLevel logLevel;
 
 
-        public FileLogger()
+        internal FileLogger()
         {
             logLevel = LogLevel.INFO;
             logFile = "logging.txt";
         }
 
-        public FileLogger(string logFileName)
+        internal FileLogger(string logFileName)
         {
             logLevel = LogLevel.INFO;
             logFile = logFileName;
         }
 
-        public FileLogger(LogLevel level)
+        internal FileLogger(LogLevel level)
         {
             logLevel = level;
             logFile = "logging.txt";
         }
 
-        public FileLogger(string logFileName, LogLevel level)
+        internal FileLogger(string logFileName, LogLevel level)
         {
             logFile = logFileName;
             logLevel = level;
