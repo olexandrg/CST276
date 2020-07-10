@@ -4,14 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Logger;
+using System.Configuration;
 
 namespace FactoryMethodStarterCode
 {
     class Program
     {
+        private static ILoggerFactory LoadFactory(string factoryName)
+        {
+            string factoryTypeAsString = ConfigurationManager.AppSettings[factoryName];
+            Type factoryType = Type.GetType(factoryTypeAsString);
+            return (ILoggerFactory)Activator.CreateInstance(factoryType);
+        }
+
         static void Main(string[] args)
         {
-            ILoggerFactory factory = new ConsoleLoggerFactory();
+            ILoggerFactory factory = LoadFactory("ConsoleFactory");
             ILogger logger1 = factory.CreateLogger();
 
             ILogger logger2 = factory.CreateLogger(LogLevel.ERROR);
@@ -19,7 +27,7 @@ namespace FactoryMethodStarterCode
             logger2.Log(LogLevel.ERROR, "Error Message");
             logger2.Log(LogLevel.FATAL, "Fatal Message");
 
-            ILoggerFactory log_factory = new FileLoggerFactory();
+            ILoggerFactory log_factory = LoadFactory("FileLoggerFactory");
             ILogger flogger1 = log_factory.CreateLogger();
             flogger1.Log("Log message");
 
