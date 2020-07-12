@@ -10,7 +10,7 @@ namespace OrdersDll
     {
         protected AbstractOrderBase order;
 
-        public OrderDecorator(AbstractOrderBase order)
+        protected OrderDecorator(AbstractOrderBase order)
         {
             this.order = order;
         }
