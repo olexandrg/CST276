@@ -12,7 +12,7 @@ namespace CSharpConsoleClockObserver
             ticker.onSecondsTick += Second;
         }
 
-        public void Second()
+        private void Second()
         {
             DateTime dt = DateTime.Now;
 
@@ -31,7 +31,6 @@ namespace CSharpConsoleClockObserver
                     Dispose();
                     ticker.onSecondsTick -= Second;
                 }
-
                 disposedValue = true;
             }
         }
@@ -44,7 +43,7 @@ namespace CSharpConsoleClockObserver
         {
             ticker.onHundredthsTick += HundredthSecond;
         }
-        public void HundredthSecond()
+        private void HundredthSecond()
         {
             DateTime dt = DateTime.Now;
 
@@ -65,7 +64,6 @@ namespace CSharpConsoleClockObserver
                     Dispose();
                     ticker.onHundredthsTick -= HundredthSecond;
                 }
-
                 disposedValue = true;
             }
         }
@@ -79,7 +77,7 @@ namespace CSharpConsoleClockObserver
             ticker.onTenthsTick += TenthSecond;
         }
 
-        public void TenthSecond()
+        private void TenthSecond()
         {
             DateTime dt = DateTime.Now;
 
@@ -100,7 +98,6 @@ namespace CSharpConsoleClockObserver
                     Dispose();
                     ticker.onTenthsTick -= TenthSecond;
                 }
-
                 disposedValue = true;
             }
         }

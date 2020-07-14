@@ -19,7 +19,7 @@ namespace CSharpConsoleClockObserver
         public event OnHundredthsDelegate onHundredthsTick;
 
         public Ticker()
-        {
+        {   // delegating null event checking to empty function
             onSecondsTick += NullHandler;
             onHundredthsTick += NullHandler;
             onTenthsTick += NullHandler;
@@ -32,8 +32,7 @@ namespace CSharpConsoleClockObserver
         }
 
         public void NullHandler()
-        {
-           
+        { 
         }
         public void Run()
         {
@@ -57,8 +56,6 @@ namespace CSharpConsoleClockObserver
                 if (count % 36000 == 0)
                     count = 0;
             }
-
         }
-
     }
 }
