@@ -16,9 +16,15 @@ namespace CSharpConsoleClockObserver
             Ticker ticker = new Ticker();
 
             // new instance of each clock
-            SecondClock clock1 = new SecondClock(0, 1, ConsoleColor.Yellow, ticker);
-            TenthSecondClock clock2 = new TenthSecondClock(0,2, ConsoleColor.Green, ticker);
-            HundredthSecondClock clock3 = new HundredthSecondClock(0,3,ConsoleColor.Red, ticker);
+            using (SecondClock clock = new SecondClock(0, 1, ConsoleColor.Black, ticker))
+            {
+                // throws StackOverflow exception
+            }
+
+            // C# 8.0 using statement (no exceptions thrown)
+            using var clock1 = new SecondClock(0, 1, ConsoleColor.Yellow, ticker);
+            using var clock2 = new TenthSecondClock(0,2, ConsoleColor.Green, ticker);
+            using var clock3 = new HundredthSecondClock(0,3,ConsoleColor.Red, ticker);
 
             // threading code (do not change)
             Thread thread = new Thread(ticker.Run);

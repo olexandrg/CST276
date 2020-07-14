@@ -12,20 +12,6 @@ namespace CSharpConsoleClockObserver
             ticker.onSecondsTick += Second;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    Dispose();
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
-                disposedValue = true;
-            }
-        }
         public void Second()
         {
             DateTime dt = DateTime.Now;
@@ -36,7 +22,19 @@ namespace CSharpConsoleClockObserver
             WriteAt(":", 5, 0);
             WriteAt(dt.Second, 6, 0, 2);
         }
-     
+        protected override void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    Dispose();
+                    ticker.onSecondsTick -= Second;
+                }
+
+                disposedValue = true;
+            }
+        }
     }
 
     public class HundredthSecondClock : Clock
@@ -58,7 +56,19 @@ namespace CSharpConsoleClockObserver
             WriteAt(".", 8, 0);
             WriteAt(dt.Millisecond / 10, 9, 0, 2);
         }
+        protected override void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    Dispose();
+                    ticker.onHundredthsTick -= HundredthSecond;
+                }
 
+                disposedValue = true;
+            }
+        }
     }
 
     public class TenthSecondClock : Clock
@@ -68,6 +78,7 @@ namespace CSharpConsoleClockObserver
         {
             ticker.onTenthsTick += TenthSecond;
         }
+
         public void TenthSecond()
         {
             DateTime dt = DateTime.Now;
@@ -79,6 +90,19 @@ namespace CSharpConsoleClockObserver
             WriteAt(dt.Second, 6, 0, 2);
             WriteAt(".", 8, 0);
             WriteAt(dt.Millisecond / 100, 9, 0, 1);
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    Dispose();
+                    ticker.onTenthsTick -= TenthSecond;
+                }
+
+                disposedValue = true;
+            }
         }
     }
 }
