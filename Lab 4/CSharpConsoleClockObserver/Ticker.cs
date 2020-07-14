@@ -1,61 +1,46 @@
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
 namespace CSharpConsoleClockObserver
 {
+    public delegate void OnSecondsDelegate();
+
+    public delegate void OnTenthsDelegate();
+
+    public delegate void OnHundredthsDelegate();
+
     public class Ticker
     {
-        List<ITimerObserver> timers = new List<ITimerObserver>();
+        public event OnSecondsDelegate onSecondsTick;
+        public event OnTenthsDelegate onTenthsTick;
+        public event OnHundredthsDelegate onHundredthsTick;
 
+        public Ticker()
+        {
+            NullHandler();
+        }
         private bool done;
         public bool Done
         {
             get { return done; }
             set { done = value; }
         }
-        public void RegisterTimer(ITimerObserver clock)
+
+        public void NullHandler()
         {
-            timers.Add(clock);
-        }
-        public void UnregisterTimer(ITimerObserver clock)
-        {
-            timers.Remove(clock);
+            onSecondsTick?.DynamicInvoke(onSecondsTick, EventArgs.Empty);
+            onTenthsTick?.DynamicInvoke(onTenthsTick, EventArgs.Empty);
+            onHundredthsTick?.DynamicInvoke(onHundredthsTick, EventArgs.Empty);
         }
         public void Run()
         {
-            int count = 0;
-            while (!done)
-            {
-                Interlocked.Increment(ref count);
-                
-                foreach (ITimerObserver timer in timers)
-                {
-                    timer.HundredthSecond();
+            onSecondsTick.Invoke();
+            onTenthsTick.Invoke();
+            onHundredthsTick.Invoke();
+        }
 
-                    if (count % 10 == 0)
-                    {
-                        timer.TenthSecond();
-                    }
-                    if (count % 100 == 0)
-                    {
-                        timer.Second();
-                    }
-                    if (count % 6000 == 0)
-                    {
-                        timer.Minute();
-                    }
-                    if (count % 36000 == 0)
-                    {
-                        timer.Hour();
-                    }
-                }
-                if (count % 36000 == 0)
-                {
-                    count = 0;
-                }
-            }
-        }       
     }
 }

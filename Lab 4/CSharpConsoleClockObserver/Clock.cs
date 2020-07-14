@@ -4,17 +4,21 @@ using System.Text;
 
 namespace CSharpConsoleClockObserver
 {
-    public class Clock
+    public class Clock : IDisposable
     {
         protected int originalRow;
         protected int originalColumn;
+        protected Ticker ticker;
         //nullable type--allows color to be an actual value or "null"
         ConsoleColor? color;
-        public Clock(int originalColumn, int originalRow, ConsoleColor? color)
+        protected bool disposedValue;
+
+        public Clock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
         {
             this.originalRow = originalRow;
             this.originalColumn = originalColumn;
             this.color = color;
+            this.ticker = ticker;
         }
         protected void WriteAt(string s, int x, int y)
         {
@@ -65,5 +69,36 @@ namespace CSharpConsoleClockObserver
                 Console.ForegroundColor = localcolor;
             }
         }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~Clock()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
+
     }
 }

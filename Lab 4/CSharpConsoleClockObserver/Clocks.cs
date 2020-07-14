@@ -4,11 +4,26 @@ using System.Text;
 
 namespace CSharpConsoleClockObserver
 {
-    public class SecondClock : Clock, ITimerObserver
+    public class SecondClock : Clock
     {
-        public SecondClock(int originalColumn, int originalRow, ConsoleColor? color)
-            : base(originalColumn, originalRow, color)
+        public SecondClock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
+            : base(originalColumn, originalRow, color, ticker)
         {
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    base.Dispose();
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                disposedValue = true;
+            }
         }
         public void HundredthSecond()
         {
@@ -34,10 +49,10 @@ namespace CSharpConsoleClockObserver
         }        
     }
 
-    public class HundredthSecondClock : Clock, ITimerObserver
+    public class HundredthSecondClock : Clock
     {
-        public HundredthSecondClock(int originalColumn, int originalRow, ConsoleColor? color)
-            : base(originalColumn, originalRow, color)
+        public HundredthSecondClock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
+            : base(originalColumn, originalRow, color, ticker)
         {
 
         }
@@ -69,8 +84,8 @@ namespace CSharpConsoleClockObserver
 
     public class TenthSecondClock : Clock, ITimerObserver
     {
-        public TenthSecondClock(int originalColumn, int originalRow, ConsoleColor? color)
-            : base(originalColumn, originalRow, color)
+        public TenthSecondClock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
+            : base(originalColumn, originalRow, color, ticker)
         {
 
         }

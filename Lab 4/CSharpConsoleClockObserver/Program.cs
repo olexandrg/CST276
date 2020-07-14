@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-
 namespace CSharpConsoleClockObserver
 {
     class Program
@@ -13,22 +12,21 @@ namespace CSharpConsoleClockObserver
         {
             Console.CursorVisible = false;
 
-            SecondClock clock1 = new SecondClock(0, 1, ConsoleColor.Yellow);
-            TenthSecondClock clock2 = new TenthSecondClock(0, 2, ConsoleColor.Green);
-            HundredthSecondClock clock3 = new HundredthSecondClock(0, 3, ConsoleColor.Red);
-
+            // new ticker instance
             Ticker ticker = new Ticker();
-            ticker.RegisterTimer(clock1);
-            ticker.RegisterTimer(clock2);
-            ticker.RegisterTimer(clock3);
 
+            // new instance of each clock
+            SecondClock clock1 = new SecondClock(0, 1, ConsoleColor.Yellow, ticker);
+            TenthSecondClock clock2 = new TenthSecondClock(0,2, ConsoleColor.Green, ticker);
+            HundredthSecondClock clock3 = new HundredthSecondClock(0,3,ConsoleColor.Red, ticker);
+
+            // threading code (do not change)
             Thread thread = new Thread(ticker.Run);
             thread.Start();
-
-            Console.ReadLine();
-
             ticker.Done = true;
             thread.Join();
+
+            Console.ReadLine();
         }
     }
 }
