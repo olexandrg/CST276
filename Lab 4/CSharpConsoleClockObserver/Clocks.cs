@@ -9,6 +9,7 @@ namespace CSharpConsoleClockObserver
         public SecondClock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
             : base(originalColumn, originalRow, color, ticker)
         {
+            ticker.onSecondsTick += Second;
         }
 
         protected override void Dispose(bool disposing)
@@ -17,19 +18,13 @@ namespace CSharpConsoleClockObserver
             {
                 if (disposing)
                 {
-                    base.Dispose();
+                    Dispose();
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override finalizer
                 // TODO: set large fields to null
                 disposedValue = true;
             }
-        }
-        public void HundredthSecond()
-        {
-        }
-        public void TenthSecond()
-        {
         }
         public void Second()
         {
@@ -41,12 +36,7 @@ namespace CSharpConsoleClockObserver
             WriteAt(":", 5, 0);
             WriteAt(dt.Second, 6, 0, 2);
         }
-        public void Minute()
-        {
-        }
-        public void Hour()
-        {
-        }        
+     
     }
 
     public class HundredthSecondClock : Clock
@@ -54,7 +44,7 @@ namespace CSharpConsoleClockObserver
         public HundredthSecondClock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
             : base(originalColumn, originalRow, color, ticker)
         {
-
+            ticker.onHundredthsTick += HundredthSecond;
         }
         public void HundredthSecond()
         {
@@ -68,29 +58,15 @@ namespace CSharpConsoleClockObserver
             WriteAt(".", 8, 0);
             WriteAt(dt.Millisecond / 10, 9, 0, 2);
         }
-        public void TenthSecond()
-        {
-        }
-        public void Second()
-        {
-        }
-        public void Minute()
-        {
-        }
-        public void Hour()
-        {
-        }
+
     }
 
-    public class TenthSecondClock : Clock, ITimerObserver
+    public class TenthSecondClock : Clock
     {
         public TenthSecondClock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
             : base(originalColumn, originalRow, color, ticker)
         {
-
-        }
-        public void HundredthSecond()
-        {
+            ticker.onTenthsTick += TenthSecond;
         }
         public void TenthSecond()
         {
@@ -103,15 +79,6 @@ namespace CSharpConsoleClockObserver
             WriteAt(dt.Second, 6, 0, 2);
             WriteAt(".", 8, 0);
             WriteAt(dt.Millisecond / 100, 9, 0, 1);
-        }
-        public void Second()
-        {
-        }
-        public void Minute()
-        {
-        }
-        public void Hour()
-        {
         }
     }
 }
