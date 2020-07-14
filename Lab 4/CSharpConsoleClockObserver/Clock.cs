@@ -11,7 +11,6 @@ namespace CSharpConsoleClockObserver
         protected Ticker ticker;
         //nullable type--allows color to be an actual value or "null"
         ConsoleColor? color;
-        protected bool disposedValue;
 
         public Clock(int originalColumn, int originalRow, ConsoleColor? color, Ticker ticker)
         {
@@ -70,6 +69,8 @@ namespace CSharpConsoleClockObserver
             }
         }
 
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -79,26 +80,22 @@ namespace CSharpConsoleClockObserver
                     
                 }
 
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
                 disposedValue = true;
             }
         }
 
-        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        // ~Clock()
-        // {
-        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        //     Dispose(disposing: false);
-        // }
+        ~Clock()
+        {
+            Dispose(false);
+        }
 
-        public void Dispose()
+        void IDisposable.Dispose()
         {
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
-            GC.SuppressFinalize(this);
+            // TODO: uncomment following line if the finalizer is overriden.
+            // GC.SuppressFinalize(this);
         }
-
-
+        #endregion
     }
 }

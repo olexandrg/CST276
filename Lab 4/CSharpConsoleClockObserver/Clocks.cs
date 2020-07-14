@@ -24,15 +24,12 @@ namespace CSharpConsoleClockObserver
         }
         protected override void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (disposing)
             {
-                if (disposing)
-                {
-                    Dispose();
-                    ticker.onSecondsTick -= Second;
-                }
-                disposedValue = true;
+                ticker.onSecondsTick -= Second;
             }
+
+            base.Dispose(disposing);
         }
     }
 
@@ -57,15 +54,12 @@ namespace CSharpConsoleClockObserver
         }
         protected override void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (disposing)
             {
-                if (disposing)
-                {
-                    Dispose();
-                    ticker.onHundredthsTick -= HundredthSecond;
-                }
-                disposedValue = true;
+                ticker.onSecondsTick -= HundredthSecond;
             }
+
+            base.Dispose(disposing);
         }
     }
 
@@ -91,15 +85,12 @@ namespace CSharpConsoleClockObserver
         }
         protected override void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (disposing)
             {
-                if (disposing)
-                {
-                    Dispose();
-                    ticker.onTenthsTick -= TenthSecond;
-                }
-                disposedValue = true;
+                ticker.onSecondsTick -= TenthSecond;
             }
+
+            base.Dispose(disposing);
         }
     }
 }
