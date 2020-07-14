@@ -17,8 +17,13 @@ namespace CSharpConsoleClockObserver
 
             // new instance of each clock
             using (SecondClock clock = new SecondClock(0, 1, ConsoleColor.Black, ticker))
+            //TODO add the rest of the using lines here
+            //using Tenth
+            //using Hundreth
             {
-                // throws StackOverflow exception
+                // throws StackOverflow exception //Should not throw exception anymore
+
+                //TODO move threading code inside here
             }
 
             // C# 8.0 using statement (no exceptions thrown)
