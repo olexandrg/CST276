@@ -20,7 +20,9 @@ namespace CSharpConsoleClockObserver
 
         public Ticker()
         {
-            NullHandler();
+            onSecondsTick += NullHandler;
+            onHundredthsTick += NullHandler;
+            onTenthsTick += NullHandler;
         }
         private bool done;
         public bool Done
@@ -31,15 +33,31 @@ namespace CSharpConsoleClockObserver
 
         public void NullHandler()
         {
-            onSecondsTick?.DynamicInvoke(onSecondsTick, EventArgs.Empty);
-            onTenthsTick?.DynamicInvoke(onTenthsTick, EventArgs.Empty);
-            onHundredthsTick?.DynamicInvoke(onHundredthsTick, EventArgs.Empty);
+           
         }
         public void Run()
         {
             onSecondsTick.Invoke();
             onTenthsTick.Invoke();
             onHundredthsTick.Invoke();
+
+            int count = 0;
+
+            while (done)
+            {
+                Interlocked.Increment(ref count);
+                onHundredthsTick();
+
+                if (count % 10 == 0)
+                    onTenthsTick();
+
+                if (count % 100 == 0)
+                    onSecondsTick();
+
+                if (count % 36000 == 0)
+                    count = 0;
+            }
+
         }
 
     }
