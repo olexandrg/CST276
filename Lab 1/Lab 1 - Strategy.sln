@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyLabStarterCode", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockReportStrategies", "StockReportStrategies\StockReportStrategies.csproj", "{2A50B95C-2034-473E-B934-2EAE5199EAA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockReportUnitTests", "StockReportUnitTests\StockReportUnitTests.csproj", "{13A21469-2C56-4EAF-B854-9E6F51072326}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2A50B95C-2034-473E-B934-2EAE5199EAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A50B95C-2034-473E-B934-2EAE5199EAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A50B95C-2034-473E-B934-2EAE5199EAA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A21469-2C56-4EAF-B854-9E6F51072326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A21469-2C56-4EAF-B854-9E6F51072326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A21469-2C56-4EAF-B854-9E6F51072326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A21469-2C56-4EAF-B854-9E6F51072326}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
