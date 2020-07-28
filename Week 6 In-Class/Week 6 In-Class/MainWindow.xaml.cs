@@ -25,12 +25,5 @@ namespace Week_6_In_Class
             InitializeComponent();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            TxtBlock.Text = $"You clicked me {num++} times!";
-        }
-
-        private int num = 0;
-       
     }
 }

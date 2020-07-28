@@ -6,12 +6,24 @@
         xmlns:local="clr-namespace:Week_6_In_Class"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainVM />
+    </Window.DataContext>
     <Grid Background="LightBlue">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name ="TxtBlock" FontSize="50" FontFamily="Script MT Bold">
-                Hello World!
+        <StackPanel HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+            <TextBlock FontSize="50" 
+                       FontFamily="Script MT Bold" 
+                       Text="{Binding TextBlockMessage}">
             </TextBlock>
-            <Button BorderThickness="2" BorderBrush="Crimson" Background="LightYellow" FontStyle="Oblique" FontSize ="30" Click="ButtonBase_OnClick" Width="150" Height="46"> 
+            <Button Command="{Binding ButtonCommand}" 
+                    BorderThickness="2" 
+                    BorderBrush="LightCoral" 
+                    Background="LightYellow" 
+                    FontStyle="Oblique" 
+                    FontSize ="30" 
+                    Width="150" 
+                    Height="46"> 
                 Click me!
             </Button>
         </StackPanel>
