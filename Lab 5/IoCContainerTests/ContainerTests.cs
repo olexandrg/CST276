@@ -51,13 +51,13 @@ namespace IoC.Tests
             subject.Should().BeOfType<SomeClassA>();
         }
 
-        //[TestMethod()]
-        //public void GetInstance_SupportsGeneric_ReturnsExpectedType()
-        //{
-        //    SomeClassA subject = container.GetInstance<SomeClassA>();
+        [TestMethod()]
+        public void GetInstance_SupportsGeneric_ReturnsExpectedType()
+        {
+            SomeClassA subject = container.GetInstance<SomeClassA>();
 
-        //    subject.Should().NotBeNull();
-        //}
+            subject.Should().NotBeNull();
+        }
 
         //[TestMethod()]
         //public void GetInstance_ForConstructorThatNeedsParams_ReturnsExpectedType()
