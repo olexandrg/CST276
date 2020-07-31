@@ -43,13 +43,13 @@ namespace IoC.Tests
             Assert.IsFalse(false);
         }
 
-        //[TestMethod()]
-        //public void GetInstance_ClassWithDefaultConstructor_ReturnsExpectedType()
-        //{
-        //    var subject = (SomeClassA)(object)container.GetInstance(typeof(SomeClassA));
+        [TestMethod()]
+        public void GetInstance_ClassWithDefaultConstructor_ReturnsExpectedType()
+        {
+            var subject = (SomeClassA)(object)container.GetInstance(typeof(SomeClassA));
 
-        //    subject.Should().BeOfType<SomeClassA>();
-        //}
+            subject.Should().BeOfType<SomeClassA>();
+        }
 
         //[TestMethod()]
         //public void GetInstance_SupportsGeneric_ReturnsExpectedType()
