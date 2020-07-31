@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3 - ArdalisRating", "RatingEngine\ArdalisRating\3 - ArdalisRating.csproj", "{57998FB9-F019-4061-9D77-93475345BDCA}"
 EndProject
@@ -15,6 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57998FB9-F019-4061-9D77-93475345BDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57998FB9-F019-4061-9D77-93475345BDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57998FB9-F019-4061-9D77-93475345BDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57998FB9-F019-4061-9D77-93475345BDCA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7428F868-5053-45F4-A7E5-076164BDA842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7428F868-5053-45F4-A7E5-076164BDA842}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7428F868-5053-45F4-A7E5-076164BDA842}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,10 +27,6 @@ Global
 		{424830C0-6D8C-4357-8841-06C3BCF7AF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{424830C0-6D8C-4357-8841-06C3BCF7AF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{424830C0-6D8C-4357-8841-06C3BCF7AF6C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57998FB9-F019-4061-9D77-93475345BDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57998FB9-F019-4061-9D77-93475345BDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57998FB9-F019-4061-9D77-93475345BDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57998FB9-F019-4061-9D77-93475345BDCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
