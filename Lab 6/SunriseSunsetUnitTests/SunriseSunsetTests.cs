@@ -12,7 +12,7 @@ namespace SunriseSunsetUnitTests
         {
             SunriseSunsetApi api_instance = new SunriseSunsetApi();
 
-            api_instance.CallApi(45.3217219, -122.7686344, DateTime.Today);
+            //api_instance.CallApi(45.3217219, -122.7686344, DateTime.Today);
         }
     }
 }
