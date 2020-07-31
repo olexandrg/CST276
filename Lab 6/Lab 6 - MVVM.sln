@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunriseSunsetWPF", "SunriseSunsetWPF\SunriseSunsetWPF.csproj", "{99B9C965-A5FF-4989-8211-3B969D3C959C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunriseSunsetLib", "SunriseSunsetLib\SunriseSunsetLib.csproj", "{2B795B3C-0DCC-4438-95E7-D5396625F5E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunriseSunsetUnitTests", "SunriseSunsetUnitTests\SunriseSunsetUnitTests.csproj", "{2F354519-905D-4835-9F44-C10E68098550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{99B9C965-A5FF-4989-8211-3B969D3C959C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99B9C965-A5FF-4989-8211-3B969D3C959C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99B9C965-A5FF-4989-8211-3B969D3C959C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B795B3C-0DCC-4438-95E7-D5396625F5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B795B3C-0DCC-4438-95E7-D5396625F5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B795B3C-0DCC-4438-95E7-D5396625F5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B795B3C-0DCC-4438-95E7-D5396625F5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F354519-905D-4835-9F44-C10E68098550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F354519-905D-4835-9F44-C10E68098550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F354519-905D-4835-9F44-C10E68098550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F354519-905D-4835-9F44-C10E68098550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
