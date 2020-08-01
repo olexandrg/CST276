@@ -10,20 +10,44 @@ namespace IoC
 {
     public class Container
     {
+        private ConstructorInfo GetMostParameters(ConstructorInfo[] infos)
+        {
+            ConstructorInfo largest = infos[0];
+
+            int max_num = 0;
+
+            foreach (var t in infos)
+            {
+                // loop thru and get the one with largest params
+                int numParams = t.GetParameters().Length;
+                if (numParams > max_num)
+                {
+                    largest = t;
+                    max_num = numParams;
+                }
+            }
+
+            return largest;
+        }
         public object GetInstance(Type type)
         {
-            Type moduleType = type.GetType();
-            Type[] types = new Type[1];
-            types[0] = type.GetType();
+            ConstructorInfo[] infos = type.GetConstructors();
+            ParameterInfo[] parameterinfos = GetMostParameters(infos).GetParameters();
 
-            ConstructorInfo constructorInfoObj = moduleType.GetConstructor(types);
+            object[] parameters = new object[parameterinfos.Length];
 
-            return Activator.CreateInstance(type.GetType(), constructorInfoObj.GetParameters());
+            for (int i = 0; i < parameterinfos.Length; i++)
+            {
+                Type parameterType = parameterinfos[i].ParameterType;
+                parameters[i] = GetInstance(parameterType);
+            }
+
+            return Activator.CreateInstance(type, parameters);
         }
 
         public T GetInstance<T>()
         {
-            return Activator.CreateInstance<T>();
+            return (T) GetInstance(typeof(T));
         }
     }
 }

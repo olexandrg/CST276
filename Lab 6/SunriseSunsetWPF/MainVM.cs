@@ -12,6 +12,7 @@ namespace SunriseSunsetWPF
 {
     public class MainVM : INotifyPropertyChanged
     {
+        private MainModel model = new MainModel();
         public string Sunrise
         {
             get { return sunrise; }
@@ -27,16 +28,15 @@ namespace SunriseSunsetWPF
         private DateTime date;
 
         public MainVM()
-        {
+        {   
             this.Longitude = -122.7686344;
             this.Latitude = 45.3217219;
             this.Date = DateTime.Today;
 
             CalculateCommand = new Relay(() =>
             {
-                
+                SunriseSunsetResult data = model.GetData(latitude, longitude, date);
             });
-
 
         }
         public event PropertyChangedEventHandler PropertyChanged;
