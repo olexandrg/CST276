@@ -67,13 +67,13 @@ namespace IoC.Tests
             subject.A.Should().BeOfType<SomeClassA>();
         }
 
-        //[TestMethod()]
-        //public void GetInstance_ForClassWithNoArgsConstructor_ReturnsExpectedType()
-        //{
-        //    var subject = container.GetInstance<ClassCNoParams>();
+        [TestMethod()]
+        public void GetInstance_ForClassWithNoArgsConstructor_ReturnsExpectedType()
+        {
+            var subject = container.GetInstance<ClassCNoParams>();
 
-        //    subject.Invoked.Should().BeTrue();
-        //}
+            subject.Invoked.Should().BeTrue();
+        }
 
         class SomeClassA
         {
