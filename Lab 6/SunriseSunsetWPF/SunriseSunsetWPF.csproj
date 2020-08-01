@@ -70,6 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainModel.cs" />
+    <Compile Include="MainVM.cs" />
     <Compile Include="SmallWindow.xaml.cs">
       <DependentUpon>SmallWindow.xaml</DependentUpon>
     </Compile>
@@ -127,6 +129,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SunriseSunsetLib\SunriseSunsetLib.csproj">
+      <Project>{2b795b3c-0dcc-4438-95e7-d5396625f5e3}</Project>
+      <Name>SunriseSunsetLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

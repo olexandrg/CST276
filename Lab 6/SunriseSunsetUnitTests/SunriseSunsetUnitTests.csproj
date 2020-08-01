@@ -60,6 +60,10 @@
       <Project>{2b795b3c-0dcc-4438-95e7-d5396625f5e3}</Project>
       <Name>SunriseSunsetLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SunriseSunsetWPF\SunriseSunsetWPF.csproj">
+      <Project>{99B9C965-A5FF-4989-8211-3B969D3C959C}</Project>
+      <Name>SunriseSunsetWPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
