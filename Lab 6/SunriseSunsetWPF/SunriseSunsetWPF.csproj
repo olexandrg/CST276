@@ -72,6 +72,7 @@
     </ApplicationDefinition>
     <Compile Include="MainModel.cs" />
     <Compile Include="MainVM.cs" />
+    <Compile Include="Relay.cs" />
     <Compile Include="SmallWindow.xaml.cs">
       <DependentUpon>SmallWindow.xaml</DependentUpon>
     </Compile>
