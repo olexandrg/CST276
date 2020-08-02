@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace IoC
 {
+
     public class Container
     {
+
         private ConstructorInfo GetMostParameters(ConstructorInfo[] infos)
         {
             ConstructorInfo largest = infos[0];
@@ -48,6 +51,17 @@ namespace IoC
         public T GetInstance<T>()
         {
             return (T) GetInstance(typeof(T));
+        }
+        Dictionary<Type, object> dictionary = new Dictionary<Type, object>();
+
+        public void Register(Type in_type, object out_type)
+        {
+            dictionary.Add(in_type,out_type);
+        }
+
+        public object Resolve(Type t)
+        {
+            return dictionary[t];
         }
     }
 }

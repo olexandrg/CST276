@@ -104,19 +104,19 @@ namespace IoC.Tests
     [TestClass()]
     public class ContainerRegisterTests : ContainerTestBase
     {
-        //[TestMethod()]
-        //public void GetInstance_WhenAskedForPet_ReturnsDog()
-        //{
-        //    //Arrange
-        //    container.Register(in_type: typeof(IPet), out_type: typeof(Dog));
+        [TestMethod()]
+        public void GetInstance_WhenAskedForPet_ReturnsDog()
+        {
+            //Arrange
+            container.Register(in_type: typeof(IPet), out_type: typeof(Dog));
 
-        //    //Act
-        //    IPet pet = container.GetInstance<IPet>();
+            //Act
+            IPet pet = container.GetInstance<IPet>();
 
-        //    //Assert
-        //    pet.Should().BeOfType<Dog>();
-        //    pet.MakeSound();  // Woof!
-        //}
+            //Assert
+            pet.Should().BeOfType<Dog>();
+            pet.MakeSound();  // Woof!
+        }
 
 
         //[TestMethod()]

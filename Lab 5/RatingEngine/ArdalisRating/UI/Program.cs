@@ -4,6 +4,7 @@ namespace ArdalisRating
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             Console.WriteLine("Ardalis Insurance Rating System Starting...");
