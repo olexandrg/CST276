@@ -55,15 +55,15 @@
             <Label Grid.Row="9" Content="Astronomical Twilight End: " />
 
             <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Sunrise}"/>
-            <TextBox Grid.Column="1" Grid.Row="1" />
-            <TextBox Grid.Column="1" Grid.Row="2" />
-            <TextBox Grid.Column="1" Grid.Row="3" />
-            <TextBox Grid.Column="1" Grid.Row="4" />
-            <TextBox Grid.Column="1" Grid.Row="5" />
-            <TextBox Grid.Column="1" Grid.Row="6" />
-            <TextBox Grid.Column="1" Grid.Row="7" />
-            <TextBox Grid.Column="1" Grid.Row="8" />
-            <TextBox Grid.Column="1" Grid.Row="9" />
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Sunset}"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding SolarNoon}"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding DayLength}"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding CivilTwilightStart}"/>
+            <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding CivilTwilightEnd}"/>
+            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding NauticalTwilightStart}"/>
+            <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding NauticalTwilightEnd}"/>
+            <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding AstroTwilightStart}"/>
+            <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding AstroTwilightEnd}"/>
         </Grid>
 
         <StackPanel Grid.Column="2" Orientation="Vertical">
