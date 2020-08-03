@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Newtonsoft.Json;
 using SunriseSunsetLib;
 
 namespace SunriseSunsetWPF
@@ -94,7 +96,7 @@ namespace SunriseSunsetWPF
         private DateTime date;
 
         public MainVM()
-        {   
+        {
             this.Longitude = -122.7686344;
             this.Latitude = 45.3217219;
             this.Date = DateTime.Today;
@@ -113,19 +115,32 @@ namespace SunriseSunsetWPF
                 this.AstroTwilightStart = DateFormatter(data.results.astronomical_twilight_begin);
                 this.AstroTwilightEnd = DateFormatter(data.results.astronomical_twilight_end);
             });
-        }
 
+            SaveCommand = new Relay(() => 
+            {
+                //open file stream
+                using (StreamWriter file = File.CreateText("output.csv"))
+                {
+                    SunriseSunsetResult data = model.GetData(latitude, longitude, date);
+
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(file, data);
+                }
+            });
+    }
+        #region Formatter
         private string DateFormatter(DateTime data)
         {
             return $"{data:hh:mm:ss tt}";
         }
-
         private string SecondsFormatter(int seconds)
         {
             TimeSpan time = TimeSpan.FromSeconds(seconds);
             return time.ToString(@"hh\:mm\:ss");
         }
+        #endregion
 
+        #region Property
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] string propertyname = "")
         {
@@ -134,5 +149,12 @@ namespace SunriseSunsetWPF
         }
 
         public ICommand CalculateCommand { get; set; }
+        public ICommand SaveCommand { get; set; }
+        #endregion
+
+        #region FileOutput
+
+
+#endregion
     }
 }

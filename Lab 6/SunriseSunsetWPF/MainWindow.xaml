@@ -89,7 +89,7 @@
             </Grid>
 
             <Button Content="Calculate" HorizontalAlignment="Center" Padding="10,5" Margin="10" Command="{Binding CalculateCommand}" />
-            <Button Content="Save" HorizontalAlignment="Center" Padding="10,5" Margin="10" />
+            <Button Content="Save" HorizontalAlignment="Center" Padding="10,5" Margin="10" Command="{Binding SaveCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
