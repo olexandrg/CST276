@@ -54,7 +54,7 @@ namespace GildedRose.Tests
             Program program = new Program();
             program.Inventory.Items = Items;
 
-            program.UpdateQuality();
+            //program.UpdateQuality();
 
             Assert.Equal(2, program.Inventory.Items[0].SellIn);
             Assert.Equal(9, program.Inventory.Items[0].Quality);
@@ -74,7 +74,7 @@ namespace GildedRose.Tests
             Program program = new Program();
             program.Inventory.Items = Items;
 
-            program.UpdateQuality();
+            //program.UpdateQuality();
 
             Assert.Equal(sellin - 1, program.Inventory.Items[0].SellIn);
             Assert.Equal(expectedquality, program.Inventory.Items[0].Quality);
