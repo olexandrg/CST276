@@ -10,8 +10,7 @@ namespace SunriseSunsetLib
 
         public SunriseSunsetResult CallApi(double latitude, double longitude, DateTime date)
         {
-            //string formatted_data = String.Format("{0:yyyy-m-dd}", date);
-            string formatted_data = "2020-07-31";
+            string formatted_data = String.Format("{0:yyyy-MM-dd}", date);
             string s = String.Format(address, latitude, longitude, formatted_data);
 
             using (WebClient client = new WebClient()) 

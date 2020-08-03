@@ -36,6 +36,7 @@ namespace SunriseSunsetWPF
             CalculateCommand = new Relay(() =>
             {
                 SunriseSunsetResult data = model.GetData(latitude, longitude, date);
+                this.Sunrise = data.results.sunrise.ToString();
             });
 
         }

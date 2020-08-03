@@ -11,9 +11,14 @@ namespace SunriseSunsetWPF
     {
         private SunriseSunsetApi api_instance;
 
-        public SunriseSunsetResult GetData(double longitude, double latitutde, DateTime date)
+        public MainModel()
         {
-            return api_instance.CallApi(longitude, latitutde, date);
+            this.api_instance = new SunriseSunsetApi();
+        }
+
+        public SunriseSunsetResult GetData(double longitude, double latitude, DateTime date)
+        {
+            return api_instance.CallApi(longitude, latitude, date);
         }
     }
 }

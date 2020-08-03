@@ -54,8 +54,8 @@
             <Label Grid.Row="8" Content="Astronomical Twilight Start: " />
             <Label Grid.Row="9" Content="Astronomical Twilight End: " />
 
-            <TextBox Grid.Column="1" Grid.Row="0" />
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Sunset}"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Sunrise}"/>
+            <TextBox Grid.Column="1" Grid.Row="1" />
             <TextBox Grid.Column="1" Grid.Row="2" />
             <TextBox Grid.Column="1" Grid.Row="3" />
             <TextBox Grid.Column="1" Grid.Row="4" />
@@ -88,7 +88,7 @@
                 <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Longitude}"/>
             </Grid>
 
-            <Button Content="Calculate" HorizontalAlignment="Center" Padding="10,5" Margin="10" />
+            <Button Content="Calculate" HorizontalAlignment="Center" Padding="10,5" Margin="10" Command="{Binding CalculateCommand}" />
             <Button Content="Save" HorizontalAlignment="Center" Padding="10,5" Margin="10" />
         </StackPanel>
     </Grid>
