@@ -17,24 +17,28 @@ namespace GildedRose.Console
             var app = new Program();
             app.Inventory.LoadInventory();
 
+            app.PrintItems(app.Inventory);
+
+        }
+        public void PrintItems(GoblinInventory inventory)
+        {
             for (int i = 0; i < 31; i++)
             {
                 System.Console.WriteLine("-------- day " + i + " --------");
                 System.Console.WriteLine("name, sellIn, quality");
-                foreach (var item in app.Inventory.Items)
+                foreach (var item in inventory.Items)
                 {
                     System.Console.WriteLine(item.Name + ", " + item.SellIn + ", " + item.Quality);
                 }
                 System.Console.WriteLine();
 
-                app.UpdateQuality();
+                UpdateQuality();
             }
 
-            app.Inventory.SaveInventory();
+            inventory.SaveInventory();
 
             System.Console.ReadLine();
         }
-
         public void UpdateQuality()
         {
             for (var i = 0; i < Inventory.Items.Count; i++)
