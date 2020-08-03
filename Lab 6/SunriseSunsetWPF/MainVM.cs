@@ -102,19 +102,30 @@ namespace SunriseSunsetWPF
             CalculateCommand = new Relay(() =>
             {
                 SunriseSunsetResult data = model.GetData(latitude, longitude, date);
-                this.Sunrise = data.results.sunrise.ToString();
-                this.Sunset = data.results.sunset.ToString();
-                this.SolarNoon = data.results.solar_noon.ToString();
-                this.DayLength = data.results.day_length.ToString();
-                this.CivilTwilightStart = data.results.civil_twilight_begin.ToString();
-                this.CivilTwilightEnd = data.results.civil_twilight_end.ToString();
-                this.NauticalTwilightStart = data.results.nautical_twilight_begin.ToString();
-                this.NauticalTwilightEnd = data.results.nautical_twilight_end.ToString();
-                this.AstroTwilightStart = data.results.astronomical_twilight_begin.ToString();
-                this.AstroTwilightEnd = data.results.astronomical_twilight_end.ToString();
+                this.Sunrise = DateFormatter(data.results.sunrise);
+                this.Sunset = DateFormatter(data.results.sunset);
+                this.SolarNoon = DateFormatter(data.results.solar_noon);
+                this.DayLength = SecondsFormatter(data.results.day_length);
+                this.CivilTwilightStart = DateFormatter(data.results.civil_twilight_begin);
+                this.CivilTwilightEnd = DateFormatter(data.results.civil_twilight_end);
+                this.NauticalTwilightStart = DateFormatter(data.results.nautical_twilight_begin);
+                this.NauticalTwilightEnd = DateFormatter(data.results.nautical_twilight_end);
+                this.AstroTwilightStart = DateFormatter(data.results.astronomical_twilight_begin);
+                this.AstroTwilightEnd = DateFormatter(data.results.astronomical_twilight_end);
             });
-
         }
+
+        private string DateFormatter(DateTime data)
+        {
+            return $"{data:hh:mm:ss tt}";
+        }
+
+        private string SecondsFormatter(int seconds)
+        {
+            TimeSpan time = TimeSpan.FromSeconds(seconds);
+            return time.ToString(@"hh\:mm\:ss");
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] string propertyname = "")
         {
