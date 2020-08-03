@@ -118,8 +118,9 @@ namespace SunriseSunsetWPF
 
             SaveCommand = new Relay(() => 
             {
-                //open file stream
-                using (StreamWriter file = File.CreateText("output.csv"))
+                //create new file and dump raw JSON data
+                // output saved to /bin/Debug
+                using (StreamWriter file = File.CreateText("output.txt"))
                 {
                     SunriseSunsetResult data = model.GetData(latitude, longitude, date);
 
@@ -151,10 +152,5 @@ namespace SunriseSunsetWPF
         public ICommand CalculateCommand { get; set; }
         public ICommand SaveCommand { get; set; }
         #endregion
-
-        #region FileOutput
-
-
-#endregion
     }
 }
