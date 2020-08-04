@@ -27,8 +27,5 @@ namespace GildedRose.Console
             get { return days[index]; }
             set { days.Insert(index, value); }
         }
-
-
-       
     }
 }

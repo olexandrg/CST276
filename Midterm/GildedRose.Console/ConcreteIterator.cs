@@ -21,7 +21,7 @@ namespace GildedRose.Console
             return aggregate[0];
         }
 
-        // Gets next iteration
+        // Gets next item
         public override object Next()
         {
             object ret = null;
@@ -35,6 +35,15 @@ namespace GildedRose.Console
         public override object CurrentItem()
         {
             return aggregate[current];
+        }
+
+        // Prints entire list
+        public override void PrintCollection()
+        {
+            for (object i = First(); i != null; i = Next())
+            {
+                System.Console.WriteLine(i);
+            }
         }
     }
 }

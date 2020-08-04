@@ -18,19 +18,15 @@ namespace GildedRose.Console
             InventoryUpdater update = new InventoryUpdater();
 
             // Create an instance of a list to store each day
-            ConcreteAggregate a = new ConcreteAggregate();
+            ConcreteAggregate days_record = new ConcreteAggregate();
 
             // Select the number of days to run the inventory and print the changes
-            update.RunInventory(a, 31);
+            update.RunInventory(days_record, 31);
 
             // Create an iterator and loop over the list
-            Iterator iterator = a.CreateIterator();
+            Iterator iterator = days_record.CreateIterator();
 
-            for (object i = iterator.First(); i != null; i = iterator.Next())
-            {
-                System.Console.WriteLine(i);
-            }
-
+            iterator.PrintCollection();
             System.Console.ReadKey();
         }
     }
