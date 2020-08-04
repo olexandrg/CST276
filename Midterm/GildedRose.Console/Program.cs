@@ -14,40 +14,21 @@ namespace GildedRose.Console
 
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            var app = new Program();
+            // Create an object to interact with global inventory
+            InventoryUpdater update = new InventoryUpdater();
 
-            app.Inventory.LoadInventory();
+            // Create an instance of a list to store each day
             ConcreteAggregate a = new ConcreteAggregate();
 
-            System.Console.WriteLine("Welcome to the Gilded Rose\n");
-
-            for (int i = 0; i < 31; ++i)
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append($"-------- day {i} --------\n" +
-                          $"name, sellIn, quality\n");
-
-                foreach (var item in app.Inventory.Items)
-                {
-                    string name = $"{item.Name.ToString()} ";
-                    string sellin = $"{item.SellIn.ToString()} ";
-                    string quality = $"{item.Quality.ToString()} \n";
-                    //string day = a[i].ToString();
-                    sb.Append(name + sellin + quality);
-                }
-
-                a[i] = sb.ToString();
-                menu.UpdateQuality(app);
-                app.Inventory.SaveInventory();
-            }
+            // Select the number of days to run the inventory and print the changes
+            update.RunInventory(a, 31);
 
             // Create an iterator and loop over the list
             Iterator iterator = a.CreateIterator();
 
-            for (object inventory_item = iterator.First(); inventory_item != null; inventory_item = iterator.Next())
+            for (object i = iterator.First(); i != null; i = iterator.Next())
             {
-                System.Console.WriteLine(inventory_item);
+                System.Console.WriteLine(i);
             }
 
             System.Console.ReadKey();

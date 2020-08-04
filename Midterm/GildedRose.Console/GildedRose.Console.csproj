@@ -48,7 +48,7 @@
     <Compile Include="ConcreteAggregate.cs" />
     <Compile Include="ConcreteIterator.cs" />
     <Compile Include="Iterator.cs" />
-    <Compile Include="Menu.cs" />
+    <Compile Include="InventoryUpdater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

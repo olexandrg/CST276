@@ -52,9 +52,10 @@ namespace GildedRose.Tests
             };
 
             Program program = new Program();
+            InventoryUpdater update = new InventoryUpdater();
             program.Inventory.Items = Items;
 
-            //program.UpdateQuality();
+            update.UpdateQuality(program);
 
             Assert.Equal(2, program.Inventory.Items[0].SellIn);
             Assert.Equal(9, program.Inventory.Items[0].Quality);
@@ -72,9 +73,11 @@ namespace GildedRose.Tests
             };
 
             Program program = new Program();
+            InventoryUpdater update = new InventoryUpdater();
+
             program.Inventory.Items = Items;
 
-            //program.UpdateQuality();
+            update.UpdateQuality(program);
 
             Assert.Equal(sellin - 1, program.Inventory.Items[0].SellIn);
             Assert.Equal(expectedquality, program.Inventory.Items[0].Quality);

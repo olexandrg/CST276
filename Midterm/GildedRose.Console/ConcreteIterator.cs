@@ -8,7 +8,7 @@ namespace GildedRose.Console
 {
     public class ConcreteIterator : Iterator
     {
-        private ConcreteAggregate aggregate;
+        private readonly ConcreteAggregate aggregate;
         private int current = 0;
 
         // Constructor
@@ -32,7 +32,6 @@ namespace GildedRose.Console
         }
 
         // Checks if iterations are completed
-
         public override object CurrentItem()
         {
             return aggregate[current];

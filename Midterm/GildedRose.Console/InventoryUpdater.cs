@@ -6,8 +6,40 @@ using System.Threading.Tasks;
 
 namespace GildedRose.Console
 {
-    public class Menu
+    public class InventoryUpdater
     {
+        private Program app;
+
+        public InventoryUpdater()
+        {
+            this.app = new Program();
+            app.Inventory.LoadInventory();
+        }
+
+        public void RunInventory(ConcreteAggregate a, int days)
+        {
+            System.Console.WriteLine("Welcome to the Gilded Rose\n");
+
+            for (int i = 0; i < days; ++i)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append($"-------- day {i} --------\n" +
+                          $"name, sellIn, quality\n");
+
+                foreach (var item in app.Inventory.Items)
+                {
+                    string name = $"{item.Name.ToString()} ";
+                    string sellin = $"{item.SellIn.ToString()} ";
+                    string quality = $"{item.Quality.ToString()} \n";
+                    sb.Append(name + sellin + quality);
+                }
+
+                a[i] = sb.ToString();
+                UpdateQuality(app);
+                app.Inventory.SaveInventory();
+            }
+        }
+        // get rid of the paramter before release (redundant, accessing member data)
         public void UpdateQuality(Program game)
         {
             for (var i = 0; i < game.Inventory.Items.Count; i++)
