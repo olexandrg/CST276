@@ -24,14 +24,12 @@ namespace GildedRose.Console
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append($"-------- day {i} --------\n" +
-                          $"name, sellIn, quality\n");
+                          "name, sellIn, quality\n");
 
                 foreach (var item in app.Inventory.Items)
                 {
-                    string name = $"{item.Name.ToString()} ";
-                    string sellin = $"{item.SellIn.ToString()} ";
-                    string quality = $"{item.Quality.ToString()} \n";
-                    sb.Append(name + sellin + quality);
+                    string itemInfo = $"{item.Name} {item.SellIn} {item.Quality} \n";
+                    sb.Append(itemInfo);
                 }
 
                 a[i] = sb.ToString();

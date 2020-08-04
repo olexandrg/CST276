@@ -16,6 +16,8 @@ namespace GildedRose.Console
             return new ConcreteIterator(this);
         }
 
+        // Return days passed to collection
+        // Unused for now, but keeping here in case collection is passed to another class
         public int Count
         {
             get { return days.Count; }

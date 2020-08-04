@@ -44,7 +44,7 @@ namespace GildedRose.Tests
         }
 
         [Fact]
-        public void TestExampleItem()
+        public void TestItem_FreshBakedBread()
         {
             List<Item> Items = new List<Item>
             {
@@ -59,6 +59,86 @@ namespace GildedRose.Tests
 
             Assert.Equal(2, program.Inventory.Items[0].SellIn);
             Assert.Equal(9, program.Inventory.Items[0].Quality);
+        }
+        [Fact]
+        public void TestItem_AgedBrie()
+        {
+            List<Item> Items = new List<Item>
+            {
+                new Item() { Name = "Aged Brie", SellIn = 3, Quality = 10 }
+            };
+
+            Program program = new Program();
+            InventoryUpdater update = new InventoryUpdater();
+            program.Inventory.Items = Items;
+
+            update.UpdateQuality(program);
+
+            Assert.Equal(2, program.Inventory.Items[0].SellIn);
+            Assert.Equal(11, program.Inventory.Items[0].Quality);
+        }
+        [Fact]
+        public void TestItem_Sulfuras()
+        {
+            List<Item> Items = new List<Item>
+            {
+                new Item() { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 }
+            };
+
+            Program program = new Program();
+            InventoryUpdater update = new InventoryUpdater();
+            program.Inventory.Items = Items;
+
+            update.UpdateQuality(program);
+
+            Assert.Equal(0, program.Inventory.Items[0].SellIn);
+            Assert.Equal(80, program.Inventory.Items[0].Quality);
+        }
+        [Fact]
+        public void TestItem_BackStagePass_QualityIncrease()
+        {
+            List<Item> Items = new List<Item>
+            {
+                new Item() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 20, Quality = 20 }
+            };
+
+            Program program = new Program();
+            InventoryUpdater update = new InventoryUpdater();
+            program.Inventory.Items = Items;
+
+            update.UpdateQuality(program);
+
+            // Test Increase by 1, when there are more than 10 days of Sell-In
+            Assert.Equal(19, program.Inventory.Items[0].SellIn);
+            Assert.Equal(21, program.Inventory.Items[0].Quality);
+
+            Items.Clear();
+
+            // Test Increase by 2, when there are 10 days of less of Sell-In
+            Items.Add(new Item() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 20 });
+
+            update.UpdateQuality(program);
+
+            Assert.Equal(9, program.Inventory.Items[0].SellIn);
+            Assert.Equal(22, program.Inventory.Items[0].Quality);
+
+            Items.Clear();
+
+            // Test Increase by 3, when there are 5 days of less of Sell-In
+            Items.Add(new Item() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 20 });
+
+            update.UpdateQuality(program);
+
+            Assert.Equal(4, program.Inventory.Items[0].SellIn);
+            Assert.Equal(23, program.Inventory.Items[0].Quality);
+
+            // Drop Sell-In down to 0 and test that quality goes to 0
+            Items.Clear();
+            Items.Add(new Item() { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 50 });
+
+            update.UpdateQuality(program);
+            Assert.Equal(-1, program.Inventory.Items[0].SellIn);
+            Assert.Equal(0, program.Inventory.Items[0].Quality);
         }
 
         [Theory]
