@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgedBrieUpdater.cs" />
     <Compile Include="Aggregate.cs" />
     <Compile Include="ConcreteAggregate.cs" />
     <Compile Include="ConcreteIterator.cs" />
+    <Compile Include="ItemQualityUpdater.cs" />
     <Compile Include="Iterator.cs" />
     <Compile Include="InventoryUpdater.cs" />
     <Compile Include="Program.cs" />

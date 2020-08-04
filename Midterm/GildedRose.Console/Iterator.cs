@@ -11,7 +11,6 @@ namespace GildedRose.Console
         public abstract object First();
         public abstract object Next();
         public abstract object CurrentItem();
-
         public abstract void PrintCollection();
     }
 }
