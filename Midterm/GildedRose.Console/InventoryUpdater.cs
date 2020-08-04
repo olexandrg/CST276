@@ -11,18 +11,18 @@ namespace GildedRose.Console
     {
         private Program app;
 
-        private List<string> items = new List<string>();
+        //private List<string> items = new List<string>();
 
         public InventoryUpdater()
         {
             this.app = new Program();
             app.Inventory.LoadInventory();
 
-            items.Add("Aged Brie");
-            items.Add("Sulfuras, Hand of Ragnaros");
-            items.Add("Backstage passes to a TAFKAL80ETC concert");
-            items.Add("Conjured Mana Cake");
-            items.Add("Enchanted Shield");
+            //items.Add("Aged Brie");
+            //items.Add("Sulfuras, Hand of Ragnaros");
+            //items.Add("Backstage passes to a TAFKAL80ETC concert");
+            //items.Add("Conjured Mana Cake");
+            //items.Add("Enchanted Shield");
         }
 
         public void RunInventory(ConcreteAggregate a, int days)
@@ -48,14 +48,38 @@ namespace GildedRose.Console
         }
 
         // get rid of the paramter before release (redundant, accessing member data)
-        public void UpdateQuality(Program game)
+        public void UpdateQuality(Program app)
         {
             
-            foreach (var t in game.Inventory.Items)
+            foreach (var t in app.Inventory.Items)
             {
-                if (t.Name == "Aged Brie")
+                if (t.Name.Contains("Aged"))
                 {
                     AgedBrieUpdater updater = new AgedBrieUpdater();
+                    updater.UpdateItem(t);
+                }
+                else if (t.Name.Contains("Backstage"))
+                {
+                    BackStageUpdater updater = new BackStageUpdater();
+                    updater.UpdateItem(t);
+                }
+                else if (t.Name.Contains("Conjured"))
+                {
+                    ConjuredUpdater updater = new ConjuredUpdater();
+                    updater.UpdateItem(t);
+                }
+                else if (t.Name.Contains("Enchanted"))
+                {
+                    EnchantedUpdater updater = new EnchantedUpdater();
+                    updater.UpdateItem(t);
+                }
+                else if (t.Name.Contains("Sulfuras"))
+                {
+                    // Legendary Item
+                }
+                else
+                {
+                    ItemQualityUpdater updater = new ItemQualityUpdater();
                     updater.UpdateItem(t);
                 }
                 //if (t.Name != "Aged Brie" && t.Name != "Backstage passes to a TAFKAL80ETC concert")

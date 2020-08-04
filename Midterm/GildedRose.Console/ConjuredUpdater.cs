@@ -7,19 +7,19 @@ using GoblinLib;
 
 namespace GildedRose.Console
 {
-    public class ItemQualityUpdater
+    public class ConjuredUpdater : ItemQualityUpdater
     {
-        public virtual void UpdateItem(Item t)
+        public override void UpdateItem(Item t)
         {
             t.SellIn = t.SellIn - 1;
+
             if (t.SellIn <= 0)
             {
-                t.Quality = t.Quality - 2;
+                t.Quality = t.Quality - 4;
             }
             else
             {
-                t.Quality = t.Quality - 1;
-
+                t.Quality = t.Quality - 2;
             }
         }
     }

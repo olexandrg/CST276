@@ -48,9 +48,12 @@
     <Compile Include="Aggregate.cs" />
     <Compile Include="ConcreteAggregate.cs" />
     <Compile Include="ConcreteIterator.cs" />
+    <Compile Include="ConjuredUpdater.cs" />
+    <Compile Include="EnchantedUpdater.cs" />
     <Compile Include="ItemQualityUpdater.cs" />
     <Compile Include="Iterator.cs" />
     <Compile Include="InventoryUpdater.cs" />
+    <Compile Include="BackStageUpdater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
