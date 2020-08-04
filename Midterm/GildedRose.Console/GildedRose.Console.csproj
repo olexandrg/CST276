@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
+    <Compile Include="ConcreteAggregate.cs" />
+    <Compile Include="ConcreteIterator.cs" />
     <Compile Include="Iterator.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />

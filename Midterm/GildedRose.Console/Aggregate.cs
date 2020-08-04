@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GildedRose.Console
 {
-    abstract class Aggregate
+    public abstract class Aggregate
     {
         public abstract Iterator CreateIterator();
     }
