@@ -22,36 +22,32 @@ namespace GildedRose.Console
             }
         }
 
-        public void ItemNameSelection(Item t)
+        public void ItemNameSelection(Item item)
         {
-            if (t.Name.Contains("Aged"))
+            if (item.Name.Contains("Aged"))
             {
                 AgedBrieUpdater updater = new AgedBrieUpdater();
-                updater.UpdateItem(t);
+                updater.UpdateItem(item);
             }
-            else if (t.Name.Contains("Backstage"))
+            else if (item.Name.Contains("Backstage"))
             {
                 BackStageUpdater updater = new BackStageUpdater();
-                updater.UpdateItem(t);
+                updater.UpdateItem(item);
             }
-            else if (t.Name.Contains("Conjured"))
+            else if (item.Name.Contains("Conjured"))
             {
                 ConjuredUpdater updater = new ConjuredUpdater();
-                updater.UpdateItem(t);
+                updater.UpdateItem(item);
             }
-            else if (t.Name.Contains("Enchanted"))
+            else if (item.Name.Contains("Enchanted"))
             {
                 EnchantedUpdater updater = new EnchantedUpdater();
-                updater.UpdateItem(t);
+                updater.UpdateItem(item);
             }
-            else if (t.Name.Contains("Sulfuras"))
-            {
-                // Legendary Item
-            }
-            else
+            else if (!item.Name.Contains("Sulfuras"))
             {
                 ItemQualityUpdater updater = new ItemQualityUpdater();
-                updater.UpdateItem(t);
+                updater.UpdateItem(item);
             }
         }
     }

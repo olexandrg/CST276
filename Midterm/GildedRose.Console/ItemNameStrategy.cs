@@ -9,6 +9,6 @@ namespace GildedRose.Console
 {
     public interface ItemNameStrategy
     {
-        void ItemNameSelection(Item t);
+        void ItemNameSelection(Item item);
     }
 }

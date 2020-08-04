@@ -15,7 +15,7 @@ namespace GildedRose.Console
 
             if (t.SellIn <= 0)
             {
-                t.Quality = t.Quality - 1;
+                t.Quality = (int)(t.Quality - 0.5);
             }
             else
             {
