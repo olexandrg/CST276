@@ -12,7 +12,15 @@ namespace GildedRose.Console
         public override void UpdateItem(Item t)
         {
             t.SellIn = t.SellIn - 1;
-            t.Quality = t.Quality - 1;
+
+            if (t.SellIn <= 0)
+            {
+                t.Quality = t.Quality - 1;
+            }
+            else
+            {
+                t.Quality = t.Quality - 1;
+            }
         }
     }
 }

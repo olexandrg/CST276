@@ -7,7 +7,7 @@ using GoblinLib;
 
 namespace GildedRose.Console
 {
-    public class ItemQualityUpdater
+    public class ItemQualityUpdater : ItemNameStrategy
     {
         public virtual void UpdateItem(Item t)
         {
@@ -19,7 +19,39 @@ namespace GildedRose.Console
             else
             {
                 t.Quality = t.Quality - 1;
+            }
+        }
 
+        public void ItemNameSelection(Item t)
+        {
+            if (t.Name.Contains("Aged"))
+            {
+                AgedBrieUpdater updater = new AgedBrieUpdater();
+                updater.UpdateItem(t);
+            }
+            else if (t.Name.Contains("Backstage"))
+            {
+                BackStageUpdater updater = new BackStageUpdater();
+                updater.UpdateItem(t);
+            }
+            else if (t.Name.Contains("Conjured"))
+            {
+                ConjuredUpdater updater = new ConjuredUpdater();
+                updater.UpdateItem(t);
+            }
+            else if (t.Name.Contains("Enchanted"))
+            {
+                EnchantedUpdater updater = new EnchantedUpdater();
+                updater.UpdateItem(t);
+            }
+            else if (t.Name.Contains("Sulfuras"))
+            {
+                // Legendary Item
+            }
+            else
+            {
+                ItemQualityUpdater updater = new ItemQualityUpdater();
+                updater.UpdateItem(t);
             }
         }
     }

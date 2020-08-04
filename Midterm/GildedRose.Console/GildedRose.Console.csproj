@@ -50,6 +50,7 @@
     <Compile Include="ConcreteIterator.cs" />
     <Compile Include="ConjuredUpdater.cs" />
     <Compile Include="EnchantedUpdater.cs" />
+    <Compile Include="ItemNameStrategy.cs" />
     <Compile Include="ItemQualityUpdater.cs" />
     <Compile Include="Iterator.cs" />
     <Compile Include="InventoryUpdater.cs" />
