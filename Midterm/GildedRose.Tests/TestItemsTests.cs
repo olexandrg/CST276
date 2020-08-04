@@ -140,7 +140,54 @@ namespace GildedRose.Tests
             Assert.Equal(-1, program.Inventory.Items[0].SellIn);
             Assert.Equal(0, program.Inventory.Items[0].Quality);
         }
+        [Fact]
+        public void TestItem_ConjuredItems()
+        {
+            // Conjured items should degrade in Quality by 2 each Inventory Update
+            List<Item> Items = new List<Item>
+            {
+                new Item() { Name = "Conjured Mana Cake", SellIn = 5, Quality = 20 }
+            };
 
+            Program program = new Program();
+            InventoryUpdater update = new InventoryUpdater();
+            program.Inventory.Items = Items;
+
+            update.UpdateQuality(program);
+
+            Assert.Equal(4, program.Inventory.Items[0].SellIn);
+            Assert.Equal(18, program.Inventory.Items[0].Quality);
+        }
+        [Fact]
+        public void TestItem_EnchantedItems()
+        {
+            // Conjured items should degrade in Quality by 1 every two days, and by 1 every day after sell-in date
+            List<Item> Items = new List<Item>
+            {
+                new Item() { Name = "Enchanted Shield", SellIn = 5, Quality = 20 }
+            };
+
+            Program program = new Program();
+            InventoryUpdater update = new InventoryUpdater();
+            program.Inventory.Items = Items;
+
+            update.UpdateQuality(program);
+
+            Assert.Equal(4, program.Inventory.Items[0].SellIn);
+            Assert.Equal(20, program.Inventory.Items[0].Quality);
+
+            update.UpdateQuality(program);
+
+            Assert.Equal(3, program.Inventory.Items[0].SellIn);
+            Assert.Equal(19, program.Inventory.Items[0].Quality);
+
+            Items.Clear();
+            Items.Add(new Item() { Name = "Enchanted Shield", SellIn = 0, Quality = 20 });
+            update.UpdateQuality(program);
+
+            Assert.Equal(-1, program.Inventory.Items[0].SellIn);
+            Assert.Equal(19, program.Inventory.Items[0].Quality);
+        }
         [Theory]
         [InlineData(3, 10, 9)]
         [InlineData(0, 10, 8)]
