@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{190FADE1-866C-421C-9CE1-9CD71E077885}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>FinalExam</RootNamespace>
-    <AssemblyName>FinalExam</AssemblyName>
+    <ProjectGuid>{8BCEC345-F2C1-4084-8DBF-EEE5C23B8B43}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FizzBuzzLib</RootNamespace>
+    <AssemblyName>FizzBuzzLib</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BuzzStrategy.cs" />
+    <Compile Include="FizzBuzz.cs" />
+    <Compile Include="FizzBuzzStrategy.cs" />
+    <Compile Include="FizzStrategy.cs" />
+    <Compile Include="IPrintIterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FizzBuzzLib\FizzBuzzLib.csproj">
-      <Project>{8bcec345-f2c1-4084-8dbf-eee5c23b8b43}</Project>
-      <Name>FizzBuzzLib</Name>
-    </ProjectReference>
+    <Compile Include="ReadResultStrategy.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
