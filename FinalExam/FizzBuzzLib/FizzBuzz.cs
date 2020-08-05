@@ -12,16 +12,15 @@ namespace FinalExam
 
         public FizzBuzz()
         {
-
         }
         public FizzBuzz(ReadResultStrategy strategy)
         {
             this.strategy = strategy;
         }
 
-        public void InputHandler()
+        public string InputHandler()
         {
-            strategy.ResultInterface();
+            return strategy.ResultInterface();
         }
 
         public void InputHandler(int i)

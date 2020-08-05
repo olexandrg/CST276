@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalExam", "FinalExam\Fina
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzzLib", "FizzBuzzLib\FizzBuzzLib.csproj", "{8BCEC345-F2C1-4084-8DBF-EEE5C23B8B43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzzUT", "FizzBuzzUT\FizzBuzzUT.csproj", "{CA5A3268-AC27-4B59-AECB-44EB6ECC2580}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8BCEC345-F2C1-4084-8DBF-EEE5C23B8B43} = {8BCEC345-F2C1-4084-8DBF-EEE5C23B8B43}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,10 @@ Global
 		{8BCEC345-F2C1-4084-8DBF-EEE5C23B8B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BCEC345-F2C1-4084-8DBF-EEE5C23B8B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BCEC345-F2C1-4084-8DBF-EEE5C23B8B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5A3268-AC27-4B59-AECB-44EB6ECC2580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5A3268-AC27-4B59-AECB-44EB6ECC2580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5A3268-AC27-4B59-AECB-44EB6ECC2580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5A3268-AC27-4B59-AECB-44EB6ECC2580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

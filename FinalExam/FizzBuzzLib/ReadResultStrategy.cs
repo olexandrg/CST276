@@ -8,6 +8,6 @@ namespace FinalExam
 {
     public abstract class ReadResultStrategy
     {
-        public abstract void ResultInterface();
+        public abstract string ResultInterface();
     }
 }

@@ -8,9 +8,9 @@ namespace FinalExam
 {
     public class BuzzStrategy : ReadResultStrategy
     {
-        public override void ResultInterface()
+        public override string ResultInterface()
         {
-            Console.WriteLine("Buzz");
+            return "Buzz";
         }
     }
 }
