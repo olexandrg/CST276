@@ -22,7 +22,7 @@ namespace GildedRose.Console
             }
         }
 
-        public void ItemNameSelection(Item item)
+        public void ItemNameSelection(Item item, decimal enchanted_count)
         {
             if (item.Name.Contains("Aged"))
             {
@@ -42,7 +42,7 @@ namespace GildedRose.Console
             else if (item.Name.Contains("Enchanted"))
             {
                 EnchantedUpdater updater = new EnchantedUpdater();
-                updater.UpdateItem(item);
+                updater.UpdateItem(item, enchanted_count);
             }
             else if (!item.Name.Contains("Sulfuras"))
             {
@@ -50,5 +50,6 @@ namespace GildedRose.Console
                 updater.UpdateItem(item);
             }
         }
+
     }
 }

@@ -7,17 +7,18 @@ using GoblinLib;
 
 namespace GildedRose.Console
 {
-    public class EnchantedUpdater : ItemQualityUpdater
+    public class EnchantedUpdater
     {
-        public override void UpdateItem(Item t)
+        public void UpdateItem(Item t, decimal enchanted_count)
         {
+            
             t.SellIn = t.SellIn - 1;
 
-            if (t.SellIn <= 0)
+            if (t.SellIn > 0 && enchanted_count % 1 == 0)
             {
-                t.Quality = (int)(t.Quality - 0.5);
+                t.Quality = t.Quality - 1;
             }
-            else
+            else if (t.SellIn <= 0)
             {
                 t.Quality = t.Quality - 1;
             }

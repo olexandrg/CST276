@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using Xunit;
-
 using GildedRose.Console;
 using GoblinLib;
+using System.Collections.Generic;
+using Xunit;
 
 namespace GildedRose.Tests
 {
@@ -75,6 +74,14 @@ namespace GildedRose.Tests
             update.UpdateQuality(program);
 
             Assert.Equal(2, program.Inventory.Items[0].SellIn);
+            Assert.Equal(11, program.Inventory.Items[0].Quality);
+
+            Items.Clear();
+
+            Items.Add(new Item() { Name = "Aged Brie", SellIn = 0, Quality = 10 });
+
+            update.UpdateQuality(program);
+            Assert.Equal(-1, program.Inventory.Items[0].SellIn);
             Assert.Equal(11, program.Inventory.Items[0].Quality);
         }
         [Fact]
@@ -157,6 +164,16 @@ namespace GildedRose.Tests
 
             Assert.Equal(4, program.Inventory.Items[0].SellIn);
             Assert.Equal(18, program.Inventory.Items[0].Quality);
+
+            Items.Clear();
+
+            // Test that quality degrades twice as fast after sell-in date
+            Items.Add(new Item() { Name = "Conjured Mana Cake", SellIn = 0, Quality = 20 });
+            update.UpdateQuality(program);
+
+            Assert.Equal(-1, program.Inventory.Items[0].SellIn);
+            Assert.Equal(16, program.Inventory.Items[0].Quality);
+
         }
         [Fact]
         public void TestItem_EnchantedItems()

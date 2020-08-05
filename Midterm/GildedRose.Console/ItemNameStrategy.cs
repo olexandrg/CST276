@@ -9,6 +9,6 @@ namespace GildedRose.Console
 {
     public interface ItemNameStrategy
     {
-        void ItemNameSelection(Item item);
+        void ItemNameSelection(Item item, decimal enchanted_count = 0);
     }
 }

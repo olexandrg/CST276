@@ -10,6 +10,7 @@ namespace GildedRose.Console
     public class InventoryUpdater
     {
         private Program app;
+        private decimal days = 0;
 
         public InventoryUpdater()
         {
@@ -20,6 +21,7 @@ namespace GildedRose.Console
         public void RunInventory(ConcreteAggregate a, int days)
         {
             System.Console.WriteLine("Welcome to the Gilded Rose\n");
+            this.days = days;
 
             for (int i = 0; i < days; ++i)
             {
@@ -45,7 +47,8 @@ namespace GildedRose.Console
 
             foreach (var t in app.Inventory.Items)
             {
-                update.ItemNameSelection(t);
+                days -= (decimal) 0.5;
+                update.ItemNameSelection(t, days);
             }
         }
     }

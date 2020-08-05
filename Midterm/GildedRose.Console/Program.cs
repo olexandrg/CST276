@@ -26,7 +26,9 @@ namespace GildedRose.Console
             // Create an iterator and loop over the list
             Iterator iterator = days_record.CreateIterator();
 
+            // Print entire inventory collection
             iterator.PrintCollection();
+
             System.Console.ReadKey();
         }
     }
