@@ -1,5 +1,6 @@
 ﻿using FinalExam;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FizzBuzzLib
 {
-    public class ProgramMenu
+    public class ProgramMenu 
     {
         FizzBuzz program;
 
@@ -17,6 +18,8 @@ namespace FizzBuzzLib
 
         public List<CustomDecorator> custom_items = new List<CustomDecorator>();
         public List<string> list = new List<string>();
+
+        public object Current => throw new NotImplementedException();
 
         public void PrintMenu()
         {
@@ -29,6 +32,7 @@ namespace FizzBuzzLib
                 Console.WriteLine("[2] Create Custom output");
                 Console.WriteLine("[3] Print Custom output");
                 Console.WriteLine("[4] Export Custom output to file");
+                Console.WriteLine("[5] Reverse list order");
                 Console.Write("\r\nSelect an option: ");
 
                 switch (Console.ReadLine())
@@ -42,11 +46,14 @@ namespace FizzBuzzLib
                         AddToCustomList();
                         break;
                     case "3":
-                        PrintList();
+                        PrintListInAscendingOrder();
                         break;
                     case "4":
                         program = new FizzBuzz(new FileParserStrategy(list));
                         program.InputHandler();
+                        break;
+                    case "5":
+                        ReverseList();
                         break;
                     default:
                         selection = false;
@@ -74,20 +81,27 @@ namespace FizzBuzzLib
 
             while (selection)
             {
-                Console.WriteLine("Enter custom number:");
-                number = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    Console.WriteLine("Enter custom number:");
+                    number = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Enter custom word:");
-                word = Console.ReadLine();
+                    Console.WriteLine("Enter custom word:");
+                    word = Console.ReadLine();
 
-                custom_items.Add(new CustomDecorator(number, word));
+                    custom_items.Add(new CustomDecorator(number, word));
 
-                Console.WriteLine("Add another custom item?:\n" +
-                    "[Any key] Add another \n" +
-                    "[2] Exit and create custom list\n");
-                user_select = Console.ReadLine();
+                    Console.WriteLine("Add another custom item?:\n" +
+                        "[Any key] Add another \n" +
+                        "[2] Exit and create custom list\n");
+                    user_select = Console.ReadLine();
 
-                if (user_select == "2") selection = false;
+                    if (user_select == "2") selection = false;
+                }
+                catch (Exception ex)
+                {
+                    Console.Write("Please enter a valid number." + ex);
+                }
             }
 
             CreateList();
@@ -114,15 +128,16 @@ namespace FizzBuzzLib
             return names;
         }
 
-        public void PrintList()
+        public void PrintListInAscendingOrder()
         {
             foreach (string item in list)
                 Console.WriteLine(item);
         }
 
-        public void ExportOutput()
+        public void ReverseList()
         {
-
+            list.Reverse();
         }
+
     }
 }

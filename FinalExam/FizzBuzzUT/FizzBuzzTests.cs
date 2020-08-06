@@ -53,7 +53,7 @@ namespace FizzBuzzUT
 
             menu.CreateList();
 
-            menu.PrintList();
+            menu.PrintListInAscendingOrder();
         }
         [TestMethod]
         public void AnyMultipleStrategyTest()

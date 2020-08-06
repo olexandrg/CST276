@@ -16,6 +16,7 @@ namespace FinalExam
         }
         public override void ProcessUserOption()
         {
+            Console.WriteLine("Please check the root directory for your output file.\n");
             Parser();
         }
 
