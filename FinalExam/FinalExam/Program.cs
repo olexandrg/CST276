@@ -15,6 +15,10 @@ namespace FinalExam
             FizzDecorator fizz = new FizzDecorator();
             BuzzDecorator buzz = new BuzzDecorator();
 
+            // Strategy Pattern Implement
+
+
+
             for (int i = 1; i <= 100; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0)

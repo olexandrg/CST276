@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace FinalExam
 {
-    public abstract class ReadResultStrategy
+    public class FileParserStrategy : UserOptionsStrategy
     {
-        public abstract string ResultInterface();
+        public override void ProcessUserOption()
+        {
+        }
     }
 }

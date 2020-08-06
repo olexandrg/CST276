@@ -44,5 +44,14 @@ namespace FizzBuzzUT
             for (int i = 0; i < 100; ++i)
                 Assert.AreEqual(i, app.InputHandler(i));
         }
+        [TestMethod]
+        public void AnyMultipleStrategyTest()
+        {
+            FizzBuzz strategy = new FizzBuzz(new AnyMultipleStrategy());
+            strategy.InputHandler();
+
+            // Check Standard Output
+            // Expecting "Any Multiple Strategy implemented."
+        }
     }
 }

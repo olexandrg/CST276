@@ -42,18 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuzzDecorator.cs" />
-    <Compile Include="BuzzStrategy.cs" />
+    <Compile Include="AnyMultipleStrategy.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="ConcreteComponent.cs" />
     <Compile Include="OutputDecorator.cs" />
     <Compile Include="FizzBuzz.cs" />
     <Compile Include="FizzBuzzDecorator.cs" />
-    <Compile Include="FizzBuzzStrategy.cs" />
+    <Compile Include="RomanNumeralsStrategy.cs" />
     <Compile Include="FizzDecorator.cs" />
-    <Compile Include="FizzStrategy.cs" />
+    <Compile Include="FileParserStrategy.cs" />
     <Compile Include="IPrintIterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadResultStrategy.cs" />
+    <Compile Include="UserOptionsStrategy.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

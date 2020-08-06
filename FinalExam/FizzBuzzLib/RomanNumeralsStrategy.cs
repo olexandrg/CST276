@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace FinalExam
 {
-    public class BuzzStrategy : ReadResultStrategy
+    public class RomanNumeralsStrategy : UserOptionsStrategy
     {
-        public override string ResultInterface()
+        public override void ProcessUserOption()
         {
-            return "Buzz";
         }
     }
 }

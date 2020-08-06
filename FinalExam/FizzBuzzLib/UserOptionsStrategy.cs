@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace FinalExam
 {
-    public class FizzBuzzStrategy : ReadResultStrategy
+    public abstract class UserOptionsStrategy
     {
-        public override string ResultInterface()
-        {
-            return "FizzBuzz";
-        }
+        public abstract void ProcessUserOption();
     }
 }

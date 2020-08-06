@@ -8,19 +8,19 @@ namespace FinalExam
 {
     public class FizzBuzz : IPrintIterator
     {
-        private ReadResultStrategy strategy;
+        private UserOptionsStrategy strategy;
 
         public FizzBuzz()
         {
         }
-        public FizzBuzz(ReadResultStrategy strategy)
+        public FizzBuzz(UserOptionsStrategy strategy)
         {
             this.strategy = strategy;
         }
 
-        public string InputHandler()
+        public void InputHandler()
         {
-            return strategy.ResultInterface();
+            strategy.ProcessUserOption();
         }
 
         public int InputHandler(int i)
