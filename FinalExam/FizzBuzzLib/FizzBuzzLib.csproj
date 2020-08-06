@@ -48,11 +48,12 @@
     <Compile Include="OutputDecorator.cs" />
     <Compile Include="FizzBuzz.cs" />
     <Compile Include="FizzBuzzDecorator.cs" />
+    <Compile Include="ProgramMenu.cs" />
     <Compile Include="RomanNumeralsStrategy.cs" />
     <Compile Include="FizzDecorator.cs" />
     <Compile Include="FileParserStrategy.cs" />
-    <Compile Include="IPrintIterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StandardFizzBuzzStrategy.cs" />
     <Compile Include="UserOptionsStrategy.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

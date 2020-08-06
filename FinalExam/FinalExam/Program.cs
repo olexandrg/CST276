@@ -11,40 +11,10 @@ namespace FinalExam
     {
         static void Main(string[] args)
         {
-            ConcreteComponent app = new ConcreteComponent();
-            FizzDecorator fizz = new FizzDecorator();
-            BuzzDecorator buzz = new BuzzDecorator();
 
-            // Strategy Pattern Implement
-
-
-
-            for (int i = 1; i <= 100; i++)
-            {
-                if (i % 3 == 0 && i % 5 == 0)
-                {
-                    buzz.SetComponent(fizz);
-                    buzz.ProduceOutput();
-                    Console.WriteLine();
-                }
-                else if (i % 3 == 0)
-                {
-                    fizz.ProduceOutput();
-                    Console.WriteLine();
-
-                }
-                else if (i % 5 == 0)
-                {
-                    buzz.ProduceOutput();
-                    Console.WriteLine();
-                }
-                else
-                {
-                    FizzBuzz counter = new FizzBuzz();
-                    Console.WriteLine(counter.InputHandler(i));
-                }
-                    
-            }
+            ProgramMenu menu = new ProgramMenu();
+            menu.PrintMenu();
+            
             Console.ReadLine();
         }
     }

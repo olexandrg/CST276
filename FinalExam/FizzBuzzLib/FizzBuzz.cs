@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace FinalExam
 {
-    public class FizzBuzz : IPrintIterator
+    public class FizzBuzz
     {
         private UserOptionsStrategy strategy;
 
-        public FizzBuzz()
-        {
-        }
         public FizzBuzz(UserOptionsStrategy strategy)
         {
             this.strategy = strategy;
@@ -23,9 +20,5 @@ namespace FinalExam
             strategy.ProcessUserOption();
         }
 
-        public int InputHandler(int i)
-        {
-            return i;
-        }
     }
 }

@@ -39,10 +39,7 @@ namespace FizzBuzzUT
         [TestMethod]
         public void IteratorOutput()
         {
-            FizzBuzz app = new FizzBuzz();
-
-            for (int i = 0; i < 100; ++i)
-                Assert.AreEqual(i, app.InputHandler(i));
+            
         }
         [TestMethod]
         public void AnyMultipleStrategyTest()
