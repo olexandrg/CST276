@@ -8,9 +8,9 @@ namespace FizzBuzzLib
 {
     public class ConcreteComponent : Component
     {
-        public override void ProduceOutput()
+        public override CustomDecorator ProduceOutput()
         {
-            
+            return null;
         }
     }
 }

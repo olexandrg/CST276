@@ -45,10 +45,10 @@
     <Compile Include="AnyMultipleStrategy.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="ConcreteComponent.cs" />
+    <Compile Include="CreateCustomListStrategy.cs" />
     <Compile Include="CustomDecorator.cs" />
     <Compile Include="OutputDecorator.cs" />
     <Compile Include="FizzBuzz.cs" />
-    <Compile Include="FizzBuzzDecorator.cs" />
     <Compile Include="ProgramMenu.cs" />
     <Compile Include="RomanNumeralsStrategy.cs" />
     <Compile Include="FizzDecorator.cs" />

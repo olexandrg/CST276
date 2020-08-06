@@ -36,7 +36,7 @@ namespace FizzBuzzUT
             buzz.ProduceOutput();
         }
         [TestMethod]
-        public void CustomOutput()
+        public void CustomOutputStrategy()
         {
             // Check Standard Output
             // Expecting 3 "Fizz" 
@@ -44,7 +44,9 @@ namespace FizzBuzzUT
             // 7 "Foo" 
             // 10 "BuzzBar"
             // 15 "FizzBuzz"...
-            ProgramMenu menu = new ProgramMenu();
+            ProgramMenu app = new ProgramMenu();
+
+            CreateCustomListStrategy menu = new CreateCustomListStrategy(1,100);
 
             menu.custom_items.Add(new CustomDecorator(3, "Fizz"));
             menu.custom_items.Add(new CustomDecorator(5, "Buzz"));
@@ -53,13 +55,30 @@ namespace FizzBuzzUT
 
             menu.CreateList();
 
-            menu.PrintListInAscendingOrder();
+            app.list = menu.GetNewList();
+
+            app.PrintList();
         }
         [TestMethod]
         public void AnyMultipleStrategyTest()
         {
             FizzBuzz strategy = new FizzBuzz(new AnyMultipleStrategy());
             strategy.InputHandler();
+
+            // Check Standard Output
+            // Expecting "Any Multiple Strategy implemented."
+        }
+        [TestMethod]
+        public void StandardStrategyTest()
+        {
+            ProgramMenu app = new ProgramMenu();
+
+            FizzBuzz strategy = new FizzBuzz(new StandardFizzBuzzStrategy());
+            strategy.InputHandler();
+
+            app.list = strategy.GetNewList();
+
+            app.PrintList();
 
             // Check Standard Output
             // Expecting "Any Multiple Strategy implemented."

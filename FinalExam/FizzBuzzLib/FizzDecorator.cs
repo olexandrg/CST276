@@ -8,10 +8,15 @@ namespace FizzBuzzLib
 {
     public class FizzDecorator : OutputDecorator
     {
-        public override void ProduceOutput()
+        public override CustomDecorator ProduceOutput()
         {
             base.ProduceOutput();
-            Console.Write("Fizz");
+            CustomDecorator fizz = new CustomDecorator(3, "Fizz");
+
+            return fizz;
+            
         }
+
+        
     }
 }

@@ -9,36 +9,25 @@ namespace FizzBuzzLib
 {
     public class StandardFizzBuzzStrategy : UserOptionsStrategy
     {
+        private List<string> list = new List<string>();
+
+        public override List<string> GetNewList()
+        {
+            return list;
+        }
+
         public override void ProcessUserOption()
         {
-            ConcreteComponent app = new ConcreteComponent();
             FizzDecorator fizz = new FizzDecorator();
             BuzzDecorator buzz = new BuzzDecorator();
 
-            for (int i = 1; i <= 100; i++)
-            {
-                if (i % 3 == 0 && i % 5 == 0)
-                {
-                    buzz.SetComponent(fizz);
-                    buzz.ProduceOutput();
-                    Console.WriteLine();
-                }
-                else if (i % 3 == 0)
-                {
-                    fizz.ProduceOutput();
-                    Console.WriteLine();
+            CreateCustomListStrategy menu = new CreateCustomListStrategy(1,100);
+            menu.custom_items.Add(fizz.ProduceOutput());
+            menu.custom_items.Add(buzz.ProduceOutput());
 
-                }
-                else if (i % 5 == 0)
-                {
-                    buzz.ProduceOutput();
-                    Console.WriteLine();
-                }
-                else
-                {
-                    Console.WriteLine(i);
-                }
-            }
+            menu.CreateList();
+
+            list = menu.GetNewList();
         }
 
      

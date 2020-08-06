@@ -8,6 +8,11 @@ namespace FinalExam
 {
     public class AnyMultipleStrategy : UserOptionsStrategy
     {
+        public override List<string> GetNewList()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void ProcessUserOption()
         {
             

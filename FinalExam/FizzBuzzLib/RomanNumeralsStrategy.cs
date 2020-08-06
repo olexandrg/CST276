@@ -8,6 +8,13 @@ namespace FinalExam
 {
     public class RomanNumeralsStrategy : UserOptionsStrategy
     {
+        private List<string> list = new List<string>();
+
+        public override List<string> GetNewList()
+        {
+            return list;
+        }
+
         public override void ProcessUserOption()
         {
         }

@@ -20,5 +20,10 @@ namespace FinalExam
             strategy.ProcessUserOption();
         }
 
+        public List<string> GetNewList()
+        {
+            return strategy.GetNewList();
+        }
+
     }
 }

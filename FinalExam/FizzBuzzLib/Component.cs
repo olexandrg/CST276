@@ -8,6 +8,6 @@ namespace FizzBuzzLib
 {
     public abstract class Component
     {
-        public abstract void ProduceOutput();
+        public abstract CustomDecorator ProduceOutput();
     }
 }

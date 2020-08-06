@@ -29,5 +29,10 @@ namespace FinalExam
                     file.WriteLine(line);
             }
         }
+
+        public override List<string> GetNewList()
+        {
+            return list;
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FizzBuzzLib
 {
-    public class CustomDecorator
+    public class CustomDecorator : OutputDecorator
     {
         public int number { get; set; }
         public string word { get; set; }

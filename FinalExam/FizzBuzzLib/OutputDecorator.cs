@@ -15,10 +15,9 @@ namespace FizzBuzzLib
             this.component = component;
         }
 
-        public override void ProduceOutput()
+        public override CustomDecorator ProduceOutput()
         {
-            if (component != null)
-                component.ProduceOutput();
+            return null;
         }
     }
 }

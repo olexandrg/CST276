@@ -9,5 +9,7 @@ namespace FinalExam
     public abstract class UserOptionsStrategy
     {
         public abstract void ProcessUserOption();
+
+        public abstract List<string> GetNewList();
     }
 }
