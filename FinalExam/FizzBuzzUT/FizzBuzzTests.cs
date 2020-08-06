@@ -59,15 +59,7 @@ namespace FizzBuzzUT
 
             app.PrintList();
         }
-        [TestMethod]
-        public void AnyMultipleStrategyTest()
-        {
-            FizzBuzz strategy = new FizzBuzz(new AnyMultipleStrategy());
-            strategy.InputHandler();
 
-            // Check Standard Output
-            // Expecting "Any Multiple Strategy implemented."
-        }
         [TestMethod]
         public void StandardStrategyTest()
         {

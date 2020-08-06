@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace FizzBuzzLib
 {
-    public class CreateCustomListStrategy : UserOptionsStrategy
+    public class CreateCustomListStrategy : UserOptionsStrategy, IFilterIntegers
     {
         private List<string> list = new List<string>();
         public List<CustomDecorator> custom_items = new List<CustomDecorator>();
 
-        private int start;
-        private int stop;
+        public int start { get; set; }
+        public int stop { get; set; }
 
         // default constructor
         public CreateCustomListStrategy()
@@ -55,7 +55,7 @@ namespace FizzBuzzLib
 
             this.stop = Convert.ToInt32(Console.ReadLine());
         }
-        private void AddToCustomList()
+        public void AddToCustomList()
         {
             bool selection = true;
             int number;
@@ -92,7 +92,8 @@ namespace FizzBuzzLib
             for (int i = start; i <= stop; ++i)
                 list.Add(CheckList(i));
         }
-        private string CheckList(int i)
+
+        public string CheckList(int i)
         {
             StringBuilder sb = new StringBuilder();
 

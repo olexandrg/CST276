@@ -27,6 +27,8 @@ namespace FizzBuzzLib
                 Console.WriteLine("[3] Print Custom output");
                 Console.WriteLine("[4] Export Custom output to file");
                 Console.WriteLine("[5] Reverse list order");
+                Console.WriteLine("[6] Filter Odd numbers");
+                Console.WriteLine("[7] Filter Even numbers");
                 Console.Write("\r\nSelect an option: ");
 
                 switch (Console.ReadLine())
@@ -51,6 +53,16 @@ namespace FizzBuzzLib
                         break;
                     case "5":
                         ReverseList();
+                        break;
+                    case "6":
+                        program = new FizzBuzz(new FilterOddStrategy());
+                        program.InputHandler();
+                        list = program.GetNewList();
+                        break;
+                    case "7":
+                        program = new FizzBuzz(new FilterEvenStrategy());
+                        program.InputHandler();
+                        list = program.GetNewList();
                         break;
                     default:
                         selection = false;
