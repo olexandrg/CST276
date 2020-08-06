@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalExam
+namespace FizzBuzzLib
 {
-    public interface IPrintIterator
+    public abstract class Component
     {
-        int InputHandler(int i);
+        public abstract void ProduceOutput();
     }
 }

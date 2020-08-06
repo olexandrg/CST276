@@ -23,9 +23,9 @@ namespace FinalExam
             return strategy.ResultInterface();
         }
 
-        public void InputHandler(int i)
+        public int InputHandler(int i)
         {
-            Console.WriteLine(i);
+            return i;
         }
     }
 }

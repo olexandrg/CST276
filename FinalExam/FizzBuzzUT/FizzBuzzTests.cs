@@ -1,5 +1,6 @@
 ﻿using System;
 using FinalExam;
+using FizzBuzzLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FizzBuzzUT
@@ -10,20 +11,38 @@ namespace FizzBuzzUT
         [TestMethod]
         public void FizzOutput()
         {
-            FizzBuzz app = new FizzBuzz(new FizzStrategy());
-            Assert.AreEqual("Fizz", app.InputHandler());
+            // Check Standard Output
+            // Expecting "Fizz"
+            FizzDecorator fizz = new FizzDecorator();
+            fizz.ProduceOutput();
         }
         [TestMethod]
         public void BuzzOutput()
         {
-            FizzBuzz app = new FizzBuzz(new BuzzStrategy());
-            Assert.AreEqual("Buzz", app.InputHandler());
+            // Check Standard Output
+            // Expecting "Buzz"
+            BuzzDecorator buzz = new BuzzDecorator();
+            buzz.ProduceOutput();
         }
         [TestMethod]
         public void FizzBuzzOutput()
         {
-            FizzBuzz app = new FizzBuzz(new FizzBuzzStrategy());
-            Assert.AreEqual("FizzBuzz", app.InputHandler());
+            // Check Standard Output
+            // Expecting "FizzBuzz"
+            ConcreteComponent app = new ConcreteComponent();
+            FizzDecorator fizz = new FizzDecorator();
+            BuzzDecorator buzz = new BuzzDecorator();
+
+            buzz.SetComponent(fizz);
+            buzz.ProduceOutput();
+        }
+        [TestMethod]
+        public void IteratorOutput()
+        {
+            FizzBuzz app = new FizzBuzz();
+
+            for (int i = 0; i < 100; ++i)
+                Assert.AreEqual(i, app.InputHandler(i));
         }
     }
 }
