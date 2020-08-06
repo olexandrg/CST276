@@ -45,6 +45,7 @@
     <Compile Include="AnyMultipleStrategy.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="ConcreteComponent.cs" />
+    <Compile Include="CustomDecorator.cs" />
     <Compile Include="OutputDecorator.cs" />
     <Compile Include="FizzBuzz.cs" />
     <Compile Include="FizzBuzzDecorator.cs" />

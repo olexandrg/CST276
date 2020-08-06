@@ -10,7 +10,7 @@ namespace FinalExam
     {
         public override void ProcessUserOption()
         {
-            Console.WriteLine("Any Multiple Strategy implemented.");
+            
         }
     }
 }

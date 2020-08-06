@@ -29,7 +29,6 @@ namespace FizzBuzzUT
         {
             // Check Standard Output
             // Expecting "FizzBuzz"
-            ConcreteComponent app = new ConcreteComponent();
             FizzDecorator fizz = new FizzDecorator();
             BuzzDecorator buzz = new BuzzDecorator();
 
@@ -37,9 +36,24 @@ namespace FizzBuzzUT
             buzz.ProduceOutput();
         }
         [TestMethod]
-        public void IteratorOutput()
+        public void CustomOutput()
         {
-            
+            // Check Standard Output
+            // Expecting 3 "Fizz" 
+            // 5 "Buzz" 
+            // 7 "Foo" 
+            // 10 "BuzzBar"
+            // 15 "FizzBuzz"...
+            ProgramMenu menu = new ProgramMenu();
+
+            menu.custom_items.Add(new CustomDecorator(3, "Fizz"));
+            menu.custom_items.Add(new CustomDecorator(5, "Buzz"));
+            menu.custom_items.Add(new CustomDecorator(7, "Foo"));
+            menu.custom_items.Add(new CustomDecorator(10, "Bar"));
+
+            menu.CreateList();
+
+            menu.PrintList();
         }
         [TestMethod]
         public void AnyMultipleStrategyTest()
