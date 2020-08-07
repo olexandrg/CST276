@@ -14,7 +14,6 @@ namespace FizzBuzzLib
             CustomDecorator fizz = new CustomDecorator(3, "Fizz");
 
             return fizz;
-            
         }
     }
 }
