@@ -96,6 +96,8 @@ namespace FizzBuzzLib
 
             this.stop = Convert.ToInt32(Console.ReadLine());
         }
+
+        // Left here for menu selection
         public void AddToCustomList()
         {
             bool selection = true;

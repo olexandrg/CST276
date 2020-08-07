@@ -44,7 +44,5 @@ namespace FizzBuzzLib
             foreach (string item in list)
                 Console.WriteLine(item);
         }
-
-
     }
 }
