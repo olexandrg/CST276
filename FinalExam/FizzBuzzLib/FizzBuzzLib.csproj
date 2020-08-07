@@ -49,7 +49,6 @@
     <Compile Include="ConcreteComponent.cs" />
     <Compile Include="CreateCustomListStrategy.cs" />
     <Compile Include="CustomDecorator.cs" />
-    <Compile Include="IFilterIntegers.cs" />
     <Compile Include="OutputDecorator.cs" />
     <Compile Include="FizzBuzz.cs" />
     <Compile Include="ProgramMenu.cs" />

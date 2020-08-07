@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FizzBuzzLib
 {
-    public class CreateCustomListStrategy : UserOptionsStrategy, IFilterIntegers
+    public class CreateCustomListStrategy : UserOptionsStrategy
     {
         public List<string> list = new List<string>();
         public List<CustomDecorator> custom_items = new List<CustomDecorator>();

@@ -40,11 +40,7 @@ namespace FinalExam
 
         public override void ProcessUserOption()
         {
-            //CreateCustomListStrategy strategy = new CreateCustomListStrategy();
-            //strategy.SetCustomRange();
-            //strategy.AddToCustomList();
-            //custom_list = strategy;
-            //CreateList();
+         
         }
     }
 }
