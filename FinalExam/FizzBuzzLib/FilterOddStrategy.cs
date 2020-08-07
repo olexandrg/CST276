@@ -30,7 +30,6 @@ namespace FinalExam
         {
             this.list = list;
 
-            CreateList();
         }
 
         public override List<string> GetNewList()
@@ -40,7 +39,7 @@ namespace FinalExam
 
         public override void ProcessUserOption()
         {
-         
+            CreateList();
         }
     }
 }

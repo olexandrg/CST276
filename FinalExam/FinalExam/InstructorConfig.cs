@@ -32,12 +32,14 @@ namespace FinalExam
             if (fileReader.filtering == 1)
             {
                 FilterOddStrategy filterOddStrategy = new FilterOddStrategy(list);
+                filterOddStrategy.ProcessUserOption();
                 list = filterOddStrategy.GetNewList();
             }
             else if (fileReader.filtering == 2)
             {
-                FilterEvenStrategy filterOddStrategy = new FilterEvenStrategy(list);
-                list = filterOddStrategy.GetNewList();
+                FilterEvenStrategy filterEvenStrategy = new FilterEvenStrategy(list);
+                filterEvenStrategy.ProcessUserOption();
+                list = filterEvenStrategy.GetNewList();
             }
 
             // Check order of printing

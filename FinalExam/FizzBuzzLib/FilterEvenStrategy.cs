@@ -18,7 +18,6 @@ namespace FinalExam
         public FilterEvenStrategy(List<string> list)
         {
             this.list = list;
-            CreateList();
         }
         public void CreateList()
         {
@@ -38,7 +37,7 @@ namespace FinalExam
 
         public override void ProcessUserOption()
         {
-            
+            CreateList();
         }
     }
 }
