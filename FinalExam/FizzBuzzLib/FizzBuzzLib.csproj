@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuzzDecorator.cs" />
-    <Compile Include="FileReaderStrategy.cs" />
+    <Compile Include="FileReader.cs" />
     <Compile Include="FilterEvenStrategy.cs" />
     <Compile Include="FilterOddStrategy.cs" />
     <Compile Include="Component.cs" />
