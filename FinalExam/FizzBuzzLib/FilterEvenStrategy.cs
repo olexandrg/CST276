@@ -7,17 +7,28 @@ using System.Threading.Tasks;
 
 namespace FinalExam
 {
-    public class FilterEvenStrategy : UserOptionsStrategy, IFilterIntegers
+    public class FilterEvenStrategy : UserOptionsStrategy
     {
         List<string> list = new List<string>();
-        CreateCustomListStrategy custom_list;
 
+        public FilterEvenStrategy()
+        {
 
+        }
+        public FilterEvenStrategy(List<string> list)
+        {
+            this.list = list;
+            CreateList();
+        }
         public void CreateList()
         {
-            for (int i = custom_list.start; i <= custom_list.stop; ++i)
-                if (i % 2 != 0)
-                    list.Add(custom_list.CheckList(i));
+            List<string> new_list = new List<string>();
+
+            foreach(string item in list)
+                if (Convert.ToInt32(item) % 2 != 0)
+                    new_list.Add(item);
+
+            list = new_list;
         }
 
         public override List<string> GetNewList()
@@ -27,12 +38,7 @@ namespace FinalExam
 
         public override void ProcessUserOption()
         {
-            CreateCustomListStrategy strategy = new CreateCustomListStrategy();
-            strategy.SetCustomRange();
-            strategy.AddToCustomList();
-            custom_list = strategy;
-            CreateList();
-
+            
         }
     }
 }

@@ -9,7 +9,7 @@ namespace FizzBuzzLib
 {
     public class CreateCustomListStrategy : UserOptionsStrategy, IFilterIntegers
     {
-        private List<string> list = new List<string>();
+        public List<string> list = new List<string>();
         public List<CustomDecorator> custom_items = new List<CustomDecorator>();
 
         public int start { get; set; }
@@ -22,10 +22,19 @@ namespace FizzBuzzLib
         }
 
         // pass custom start / stop for testing
-        public CreateCustomListStrategy(int start, int stop)
+        public CreateCustomListStrategy(int stop = 0, int start = 0)
         {
             this.start = start;
             this.stop = stop;
+        }
+
+        // pass custom start, stop, and pre-made list
+        public CreateCustomListStrategy(int start, int stop, List<string> list, List<CustomDecorator> custom_items)
+        {
+            this.start = start;
+            this.stop = stop;
+            this.list = list;
+            this.custom_items = custom_items;
         }
 
         public void SetCustomItems(List<CustomDecorator> custom_items)
@@ -45,6 +54,38 @@ namespace FizzBuzzLib
             return list;
         }
 
+        public void CreateList()
+        {
+            List<string> new_list = new List<string>();
+
+            if (start != 0)
+                list.RemoveRange(0, start);
+
+            foreach (string item in list)
+                new_list.Add(CheckList(Convert.ToInt32(item)));
+
+            list = new_list;
+        }
+
+        public string CheckList(int i)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (CustomDecorator item in custom_items)
+                if (i % item.number == 0)
+                    sb.Append(item.word);
+
+            if (sb.Length == 0)
+                return (Convert.ToString(i));
+
+            string names = sb.ToString();
+
+            return names;
+        }
+        public override List<string> GetNewList()
+        {
+            return list;
+        }
         public void SetCustomRange()
         {
             Console.WriteLine("Enter start number:");
@@ -87,32 +128,5 @@ namespace FizzBuzzLib
                 }
             }
         }
-        public void CreateList()
-        {
-            for (int i = start; i <= stop; ++i)
-                list.Add(CheckList(i));
-        }
-
-        public string CheckList(int i)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            foreach (CustomDecorator item in custom_items)
-                if (i % item.number == 0)
-                    sb.Append(item.word);
-
-            if (sb.Length == 0)
-                return (Convert.ToString(i));
-
-            string names = sb.ToString();
-
-            return names;
-        }
-
-        public override List<string> GetNewList()
-        {
-            return list;
-        }
-
     }
 }

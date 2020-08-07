@@ -81,5 +81,10 @@ namespace FizzBuzzLib
         {
             list.Reverse();
         }
+
+        public void StoreList(List<string> list)
+        {
+            this.list = list;
+        }
     }
 }
