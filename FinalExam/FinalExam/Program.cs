@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.Windows;
 
 namespace FinalExam
 {
@@ -17,12 +18,25 @@ namespace FinalExam
             FizzBuzz app = new FizzBuzz((UserOptionsStrategy)Activator.CreateInstance(instance));
             return app;
         }
-        static void Main(string[] args)
-        {
-            ProgramMenu menu = new ProgramMenu();
 
-            //FizzBuzz program = LoadConfiguration("DefaultConfig");
-            FizzBuzz program = LoadConfiguration("UserConfig");
+        private static FizzBuzz ConfigHander(string[] args)
+        {
+            FizzBuzz program = LoadConfiguration("DefaultConfig");
+
+            if (args.Length > 0)
+            {
+                if (args[0] == "custom")
+                {
+                    program = LoadConfiguration("UserConfig");
+                }
+            }
+
+            return program;
+        }
+
+        public static void Main(string[] args)
+        {
+            FizzBuzz program = ConfigHander(args);
 
             program.InputHandler();
 

@@ -16,7 +16,5 @@ namespace FizzBuzzLib
             return fizz;
             
         }
-
-        
     }
 }
